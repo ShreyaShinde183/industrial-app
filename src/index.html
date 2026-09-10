@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MAP FILTERS INDIA PVT. LTD. | Clean Room Creators & Complete HVAC Solutions</title>
+    <meta name="description"
+        content="MAP FILTERS INDIA PVT. LTD. is an established ISO 9001:2008 certified company providing complete solutions for clean rooms, HVAC, cleanroom equipment, panels, doors, modular OT, and HEPA air filters.">
+    <meta name="keywords"
+        content="Clean Room Creators, MAP FILTERS INDIA, cleanroom equipment, modular operation theatre, HVAC cleanroom, HEPA filters, cleanroom panels, cleanroom doors, pharmaceutical cleanroom">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css2">
+</head>
+
+<body>
+
+
+
+    <!-- ================= STICKY HEADER / NAVBAR ================= -->
+    <header class="site-header">
+        <div class="nav-container">
+
+            <a href="#hero" class="brand-logo" aria-label="MAP FILTERS INDIA PVT. LTD. Home">
+                <img src="assets/mapfil-logo.png" alt="MAP FILTERS INDIA PVT. LTD. - Clean Room Creators" class="logo-image">
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-item active">Home</a></li>
+                    <li><a href="#about" class="nav-item">About Us</a></li>
+                    <li><a href="#solutions" class="nav-item">Solutions</a></li>
+                    <li class="has-dropdown">
+                        <a href="#products" class="nav-item">
+                            Products & Services
+                            <span class="chevron">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'Clean Rooms')">Clean Rooms</a></li>
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'Cleanroom Equipment')">Cleanroom Equipment</a></li>
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'Panels & Doors')">Panels & Doors</a></li>
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'Modular Operation Theatre')">Modular Operation Theatre</a></li>
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'HVAC Systems')">HVAC Systems</a></li>
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'HEPA Air & Pre Filters')">HEPA Air & Pre Filters</a></li>
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'AMC Services')">AMC Services</a></li>
+                            <li><a href="#products" onclick="openQuoteModal('Dropdown Menu', 'Laboratory Furniture')">Laboratory Furniture</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#industries" class="nav-item">Industries</a></li>
+                    <li><a href="#why-mapfil" class="nav-item">Why Mapfil?</a></li>
+                    <li><a href="#contact" class="nav-item">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="assets/pdf/Mapfil_Catalogue_Full.pdf" target="_blank" class="btn-brochure-nav" title="View Catalogue & Brochure">
+                    <img src="btn-brochure.png" alt="Brochure icon">
+                    <span>Brochure</span>
+                </a>
+
+                <button class="quote-nav-btn" onclick="openQuoteModal('Navbar Action')">
+                    <span>Request a Quote</span>
+                    <span class="arrow-up-right">↗</span>
+                </button>
+
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Navigation">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="hero">
+        <div class="hero-container">
+
+            <!-- Left Hero Content -->
+            <div class="hero-content">
+                <div class="spec-badge">
+                    <span class="badge-icon">★</span>
+                    <span>Clean Room Creators & Complete HVAC Solutions</span>
+                </div>
+
+                <h1 class="hero-headline">
+                    CLEAN ROOM <br>
+                    <span class="headline-red">CREATORS</span>
+                </h1>
+
+                <p class="hero-description">
+                    MAP FILTERS INDIA PVT. LTD. is an established ISO 9001:2008 certified company, committed to providing complete turnkey clean room and HVAC solutions for pharmaceutical, chemical, research and allied industries across India.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#products" class="btn-primary-red">
+                        <span>Explore Our Products</span>
+                        <span class="btn-icon-circle">→</span>
+                    </a>
+                    <a href="#contact" class="btn-secondary-navy">
+                        <span>Contact Our Engineers</span>
+                    </a>
+                </div>
+
+                <!-- Proof Strip -->
+                <div class="hero-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-num">20+</span>
+                        <span class="highlight-label">Years Experience</span>
+                    </div>
+                    <div class="highlight-divider"></div>
+                    <div class="highlight-item">
+                        <span class="highlight-num">ISO 9001:2008</span>
+                        <span class="highlight-label">Quality Certified</span>
+                    </div>
+                    <div class="highlight-divider"></div>
+                    <div class="highlight-item">
+                        <span class="highlight-num">Pan-India</span>
+                        <span class="highlight-label">Turnkey Delivery</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero Showcase Card -->
+            <div class="hero-visual">
+                <div class="product-showcase-card">
+                    <div class="card-tags">
+                        <span class="tag-certified">
+                            <span class="tag-shield">🛡️</span>
+                            ISO 9001:2008 CERTIFIED
+                        </span>
+                        <span class="tag-reflection">TURNKEY CLEANROOMS</span>
+                    </div>
+
+                    <div class="card-image-wrap">
+                        <img src="assets/hero-modular-ot.png" alt="MAP FILTERS Modular Operation Theatre & Cleanroom Facility" class="showcase-img">
+                    </div>
+
+                    <div class="card-footer-spec">
+                        <span class="spec-dot"></span>
+                        <span>Modular OT • Cleanroom Equipment • HEPA Air & Pre Filters</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= ABOUT US SECTION ================= -->
+    <section class="about-section" id="about">
+        <div class="section-wrapper about-grid">
+
+            <div class="about-text-col">
+                <span class="about-eyebrow">ABOUT US</span>
+                <h2>Clean Room Creators & Complete Solution Providers</h2>
+
+                <p class="about-lead">
+                    MAP FILTERS INDIA PVT. LTD. is an established ISO 9001:2008 certified company, committed to provide complete solution of clean room & HVAC (Heating, Ventilation & Air conditioning) for Pharmaceutical, Chemical, Research and Allied Industries.
+                </p>
+
+                <p class="about-body-text">
+                    Having experience of more than 20 years, MAP FILTERS has in-house capability of manufacturing clean room equipments, panels, doors, Modular Operation Theatre and air filters required for clean rooms. We also undertake turnkey projects for clean room & HVAC.
+                </p>
+
+                <p class="about-body-text">
+                    We design, manufacture and install customized products and provide prompt after sales service to our valued customers.
+                </p>
+            </div>
+
+            <div class="about-visual-col">
+                <div class="about-image-card">
+                    <img src="mapfil-catalogue-cover.png" alt="MAP FILTERS Cleanroom Installation" loading="lazy">
+                </div>
+
+                <div class="about-iso-banner">
+                    <img src="iso-certifications.png" alt="ISO 9001:2008 Certification Graphic">
+                    <div class="about-iso-text">
+                        <h4>ISO 9001:2008 Certified Quality</h4>
+                        <p>Complete compliance with ISO 14644, cGMP, and pharmaceutical validation guidelines.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= WHY MAPFIL? ================= -->
+    <section class="why-section" id="why-mapfil">
+        <div class="section-wrapper">
+            <div class="section-heading" style="text-align: center;">
+                <span class="section-eyebrow">OUR ADVANTAGE</span>
+                <h2>Why Choose MAP FILTERS?</h2>
+                <p>Over two decades of dedication to industrial cleanroom excellence, engineering reliability, and client trust.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">⏱️</div>
+                        <h3>20+ Years Experience</h3>
+                    </div>
+                    <p>Over two decades of proven excellence in cleanroom & HVAC execution across India.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">🏅</div>
+                        <h3>ISO 9001:2008 Certified</h3>
+                    </div>
+                    <p>Strict quality assurance adhering to global ISO 14644 and cGMP cleanroom standards.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">🏭</div>
+                        <h3>In-House Manufacturing</h3>
+                    </div>
+                    <p>Direct production of cleanroom panels, doors, equipment, and certified HEPA filters.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">🏗️</div>
+                        <h3>Turnkey Projects</h3>
+                    </div>
+                    <p>Single-window accountability from conceptual design to installation and validation.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">📐</div>
+                        <h3>Customized Solutions</h3>
+                    </div>
+                    <p>Tailored engineering to match specific industry cleanliness classes and plant layouts.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">👷</div>
+                        <h3>Professional Installation</h3>
+                    </div>
+                    <p>Flawless on-site execution by veteran cleanroom engineers ensuring zero air leakage.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">❄️</div>
+                        <h3>Advanced HVAC Expertise</h3>
+                    </div>
+                    <p>Mastery of precision temperature, humidity control, and energy-efficient AHU systems.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">🇮🇳</div>
+                        <h3>Pan-India Network</h3>
+                    </div>
+                    <p>Rapid deployment capabilities and technical support hubs across major industrial zones.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-header">
+                        <div class="why-card-icon">🤝</div>
+                        <h3>Prompt After-Sales Service</h3>
+                    </div>
+                    <p>Dedicated AMC contracts, DOP filter testing, and rapid replacement filter delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <!-- ================= COMPLETE CLEANROOM SOLUTIONS (TURNKEY FLOW) ================= -->
+    <section class="solutions-flow-section" id="solutions">
+        <div class="section-wrapper">
+            <div class="section-heading" style="text-align: center;">
+                <span class="section-eyebrow">TURNKEY CAPABILITY</span>
+                <h2>Complete Cleanroom & HVAC Delivery</h2>
+                <p>End-to-end execution from initial concept and regulatory planning to ongoing lifecycle validation.</p>
+            </div>
+
+            <div class="solutions-flow-grid">
+                <div class="solution-step-card">
+                    <div class="step-number-badge">01</div>
+                    <h3>Consultation & Design</h3>
+                    <p class="card-desc-summary">Process mapping, ISO 5 to 8 cleanliness classes, and HVAC airflow design.</p>
+                    <div class="card-desc-full" aria-hidden="true">
+                        <p class="card-desc-detail">Analysis of process requirements, cleanliness classes (ISO 5 to ISO 8), pressure cascades, and HVAC airflow modeling.</p>
+                        <ul>
+                            <li>Cleanliness class mapping</li>
+                            <li>CFD airflow & pressure design</li>
+                            <li>cGMP & regulatory compliance</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                        <span class="btn-toggle-text">View Description</span>
+                        <span class="btn-toggle-arrow">▾</span>
+                    </button>
+                </div>
+
+                <div class="solution-step-card">
+                    <div class="step-number-badge">02</div>
+                    <h3>In-House Manufacturing</h3>
+                    <p class="card-desc-summary">Modular panels, hermetic doors, LAF equipment, and HEPA filters.</p>
+                    <div class="card-desc-full" aria-hidden="true">
+                        <p class="card-desc-detail">Precision fabrication of modular wall and ceiling panels, hermetic doors, laminar flow units, pass boxes, and HEPA filters.</p>
+                        <ul>
+                            <li>PIR/PUF insulated panels</li>
+                            <li>Dynamic & static pass boxes</li>
+                            <li>Mini-pleat HEPA/ULPA filters</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                        <span class="btn-toggle-text">View Description</span>
+                        <span class="btn-toggle-arrow">▾</span>
+                    </button>
+                </div>
+
+                <div class="solution-step-card">
+                    <div class="step-number-badge">03</div>
+                    <h3>HVAC & Modular OT</h3>
+                    <p class="card-desc-summary">Custom AHUs, ducting, chillers, surgical ceilings, and Modular OT suites.</p>
+                    <div class="card-desc-full" aria-hidden="true">
+                        <p class="card-desc-detail">Turnkey integration of Air Handling Units (AHU), ducting, chillers, surgical ceilings, hermetic doors, and cleanroom lighting.</p>
+                        <ul>
+                            <li>Custom AHU & humidity control</li>
+                            <li>Surgical laminar air flow ceilings</li>
+                            <li>Anti-bacterial wall cladding</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                        <span class="btn-toggle-text">View Description</span>
+                        <span class="btn-toggle-arrow">▾</span>
+                    </button>
+                </div>
+
+                <div class="solution-step-card">
+                    <div class="step-number-badge">04</div>
+                    <h3>Validation & AMC</h3>
+                    <p class="card-desc-summary">Full commissioning, DOP filter integrity tests, and scheduled AMC contracts.</p>
+                    <div class="card-desc-full" aria-hidden="true">
+                        <p class="card-desc-detail">Comprehensive commissioning, DOP integrity testing, particle count audits, and ongoing Annual Maintenance Contracts.</p>
+                        <ul>
+                            <li>DOP & HEPA filter leak tests</li>
+                            <li>Air velocity & recovery tests</li>
+                            <li>Scheduled AMC servicing</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                        <span class="btn-toggle-text">View Description</span>
+                        <span class="btn-toggle-arrow">▾</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= PRODUCTS & SERVICES SECTION ================= -->
+    <section class="cleanroom-products-section" id="products">
+        <div class="section-wrapper">
+            <div class="section-heading" style="text-align: center;">
+                <span class="section-eyebrow">OUR SPECIALIZATION</span>
+                <h2>Products & Turnkey Services</h2>
+                <p>Engineered in-house to the highest precision standards for pharmaceutical, research, and healthcare environments.</p>
+            </div>
+
+            <div class="cleanroom-products-grid">
+
+                <!-- 1. Clean Rooms -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">Turnkey</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">🏗️</span>
+                            <span>Modular Clean Rooms</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Enclosure Systems</span>
+                        <h3>Clean Rooms</h3>
+                        <p class="card-desc-summary">Modular cleanroom construction certified from ISO Class 5 to ISO 8.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">Complete modular cleanroom construction with flush wall-ceiling transitions, airtight coving, and certified cleanliness levels from ISO 5 to ISO 8.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>Modular Walls</span>
+                                <span>Walk-on Ceilings</span>
+                                <span>ISO 14644</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'Clean Rooms')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'Clean Rooms')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Cleanroom Equipment -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">In-House</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">🔬</span>
+                            <span>Precision Equipment</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Process Protection</span>
+                        <h3>Cleanroom Equipment</h3>
+                        <p class="card-desc-summary">High-efficiency LAF units, pass boxes, biosafety cabinets, and air showers.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">High-efficiency Laminar Air Flow (LAF) units, Dynamic & Static Pass Boxes, Bio Safety Cabinets, Air Showers, and Sampling/Dispensing Booths.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>Laminar Air Flow</span>
+                                <span>Pass Boxes</span>
+                                <span>Bio Safety</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'Cleanroom Equipment')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'Cleanroom Equipment')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Panels & Doors -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">Precision</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">🚪</span>
+                            <span>Modular Panels</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Architectural</span>
+                        <h3>Panels & Doors</h3>
+                        <p class="card-desc-summary">Insulated partition panels, flush hermetic doors, and double-glazed view panels.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">PIR, PUF, and Rockwool insulated modular panels, cleanroom-grade hermetic flush doors with drop seals, and double-glazed view panels.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>PIR / PUF Core</span>
+                                <span>Hermetic Doors</span>
+                                <span>Flush Glazing</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'Panels & Doors')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'Panels & Doors')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Modular Operation Theatre -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">Healthcare</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">🏥</span>
+                            <span>Modular OT</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Surgical Suite</span>
+                        <h3>Modular Operation Theatre</h3>
+                        <p class="card-desc-summary">Turnkey OT suites with surgical laminar airflow ceilings and hermetic doors.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">Integrated Modular OT solutions featuring laminar airflow surgical ceilings, anti-bacterial wall cladding, hermetic sliding doors, and control panels.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>Surgical Ceilings</span>
+                                <span>Anti-Bacterial</span>
+                                <span>NABH Compliant</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'Modular Operation Theatre')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'Modular Operation Theatre')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. HVAC Systems -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">Engineered</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">❄️</span>
+                            <span>HVAC Engineering</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Climate Control</span>
+                        <h3>HVAC Systems</h3>
+                        <p class="card-desc-summary">Custom AHUs, precision temperature control, and RH dehumidification.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">Custom-designed Air Handling Units (AHU), precise temperature control, RH dehumidification systems, insulated GI ducting, and volume control dampers.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>Custom AHUs</span>
+                                <span>RH Dehumidifiers</span>
+                                <span>Cascade Pressure</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'HVAC Systems')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'HVAC Systems')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. HEPA Air & Pre Filters -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">99.997% Efficiency</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">💨</span>
+                            <span>Filtration Media</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Air Purification</span>
+                        <h3>HEPA Air & Pre Filters</h3>
+                        <p class="card-desc-summary">In-house Mini-Pleat HEPA (H13/H14), ULPA filters, and washable pre-filters.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">In-house manufactured Mini-Pleat HEPA filters (H13/H14), ULPA filters (U15), medium efficiency pocket filters, and washable pre-filters.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>HEPA H13/H14</span>
+                                <span>ULPA Filters</span>
+                                <span>Pre-Filters</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'HEPA Air & Pre Filters')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'HEPA Air & Pre Filters')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. AMC Services -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">Support</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">🛠️</span>
+                            <span>Comprehensive AMC</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Lifecycle Support</span>
+                        <h3>AMC Services</h3>
+                        <p class="card-desc-summary">Scheduled filter replacements, AHU calibration, DOP tests, and audits.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">Prompt Annual Maintenance Contracts, scheduled filter replacements, AHU calibration, DOP integrity testing, and cleanroom re-validation audits.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>Periodic Audits</span>
+                                <span>Filter Replacement</span>
+                                <span>Re-Validation</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'AMC Services')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'AMC Services')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Laboratory Furniture -->
+                <div class="cleanroom-card">
+                    <span class="cleanroom-card-badge">Heavy Duty</span>
+                    <div class="cleanroom-card-media">
+                        <div class="cleanroom-icon-fallback">
+                            <span class="icon">🧪</span>
+                            <span>Lab Casework</span>
+                        </div>
+                    </div>
+                    <div class="cleanroom-card-body">
+                        <span class="cleanroom-card-cat">Lab Infrastructure</span>
+                        <h3>Laboratory Furniture</h3>
+                        <p class="card-desc-summary">Cleanroom SS workbenches, chemical fume hoods, and anti-vibration tables.</p>
+                        <div class="card-desc-full" aria-hidden="true">
+                            <p class="card-desc-detail">Ergonomic cleanroom-grade stainless steel workbenches, chemical-resistant fume hoods, anti-vibration instrument tables, and modular storage cabinetry.</p>
+                            <div class="cleanroom-card-tags">
+                                <span>SS 304 / 316</span>
+                                <span>Fume Hoods</span>
+                                <span>Anti-Vibration</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-desc-toggle" aria-expanded="false" onclick="toggleCardDescription(this)">
+                            <span class="btn-toggle-text">View Description</span>
+                            <span class="btn-toggle-arrow">▾</span>
+                        </button>
+                        <div class="cleanroom-card-actions">
+                            <button class="btn-card-quote" onclick="openQuoteModal('Products Grid', 'Laboratory Furniture')">
+                                Request Quote ↗
+                            </button>
+                            <button class="btn-card-details" onclick="openQuoteModal('Product Inquiry', 'Laboratory Furniture')">
+                                Specs →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= INDUSTRIES WE SERVE ================= -->
+    <section class="industries-cleanroom-section" id="industries">
+        <div class="section-wrapper">
+            <div class="industries-header-flex">
+                <div class="section-heading industries-heading">
+                    <span class="section-eyebrow">SECTORS & VERTICALS</span>
+                    <h2>Industries We Serve</h2>
+                    <p>Tailored cleanroom and environmental control solutions engineered to meet exacting sector regulations.</p>
+                </div>
+                <div class="industries-carousel-nav" aria-label="Industries Carousel Controls">
+                    <button type="button" class="carousel-nav-btn" id="indPrevBtn" aria-label="Previous Industries">
+                        <span aria-hidden="true">←</span>
+                    </button>
+                    <button type="button" class="carousel-nav-btn" id="indNextBtn" aria-label="Next Industries">
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="industries-carousel-wrapper">
+                <div class="industries-cleanroom-track" id="industriesTrack" role="region" aria-label="Industries Carousel Track">
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-pharma.png" alt="Pharmaceutical Industry Cleanroom" class="ind-app-img">
+                        </div>
+                        <h3>Pharmaceutical Industry</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-chemical.png" alt="Chemical Research Laboratory Cleanroom" class="ind-app-img">
+                        </div>
+                        <h3>Chemical Research Laboratory</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-electronic.png" alt="Electronic Industry Cleanroom" class="ind-app-img">
+                        </div>
+                        <h3>Electronic Industry</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-semiconductor.png" alt="Semi-Conductor Production Cleanroom" class="ind-app-img">
+                        </div>
+                        <h3>Semi-Conductor Production</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-food.png" alt="Food Processing Industry Cleanroom" class="ind-app-img">
+                        </div>
+                        <h3>Food Processing Industry</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-hospital.png" alt="Hospital Segments Modular OT" class="ind-app-img">
+                        </div>
+                        <h3>Hospital Segments</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-aeronautical.png" alt="Aeronautical Cleanroom Applications" class="ind-app-img">
+                        </div>
+                        <h3>Aeronautical</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-energy.png" alt="Energy Power Sector Cleanroom Filtration" class="ind-app-img">
+                        </div>
+                        <h3>Energy Power Sector</h3>
+                    </div>
+
+                    <div class="industry-cleanroom-card">
+                        <div class="ind-app-img-wrap">
+                            <img src="assets/applications/app-marine.png" alt="Marine and Ship Clean Air Systems" class="ind-app-img">
+                        </div>
+                        <h3>Marine &amp; Ship</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Pagination Dots -->
+            <div class="industries-carousel-dots" id="indCarouselDots" aria-label="Industries Carousel Pagination"></div>
+        </div>
+    </section>
+
+
+    <!-- ================= INTERACTIVE SERVICE NETWORK & MAP FILTERS ================= -->
+    <section class="mapfil-map-filters-section" id="find-us">
+        <div class="section-wrapper">
+            <div class="section-heading" style="text-align: center;">
+                <span class="section-eyebrow">SERVICE NETWORK</span>
+                <h2>Find MAP FILTERS Near You</h2>
+                <p>Explore our cleanroom engineering hubs, regional service centers, and turnkey project offices across India and allied regions.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="mapfil-filters-bar">
+                <div class="filters-row-top">
+                    <div class="search-box-wrap">
+                        <input type="text" id="mapSearch" class="filter-input" placeholder="Search by city, hub name, or industry...">
+                        <button id="searchClearBtn" class="search-clear" style="display:none;" aria-label="Clear Search">✕</button>
+                    </div>
+                    <div class="results-badge-wrap">
+                        <span class="results-count-badge" id="resultsCountBadge">11 Hubs Found</span>
+                    </div>
+                </div>
+
+                <div class="filters-row-bottom">
+                    <select id="filterCountry" class="filter-select">
+                        <option value="">All Countries</option>
+                    </select>
+
+                    <select id="filterState" class="filter-select" disabled>
+                        <option value="">All States</option>
+                    </select>
+
+                    <select id="filterCity" class="filter-select" disabled>
+                        <option value="">All Cities</option>
+                    </select>
+
+                    <select id="filterIndustry" class="filter-select">
+                        <option value="">All Industries</option>
+                        <option value="Pharmaceutical Industries">Pharmaceutical Industries</option>
+                        <option value="Chemical Industries">Chemical Industries</option>
+                        <option value="Research Industries">Research Industries</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Laboratories">Laboratories</option>
+                        <option value="Allied Industries">Allied Industries</option>
+                    </select>
+
+                    <select id="filterProduct" class="filter-select">
+                        <option value="">All Specializations</option>
+                        <option value="Clean Rooms">Clean Rooms</option>
+                        <option value="Cleanroom Equipment">Cleanroom Equipment</option>
+                        <option value="Panels & Doors">Panels & Doors</option>
+                        <option value="Modular OT">Modular OT</option>
+                        <option value="HVAC Systems">HVAC Systems</option>
+                        <option value="HEPA Air & Pre Filters">HEPA Air & Pre Filters</option>
+                        <option value="AMC Services">AMC Services</option>
+                        <option value="Laboratory Furniture">Laboratory Furniture</option>
+                    </select>
+
+                    <select id="filterCert" class="filter-select">
+                        <option value="">All Standards</option>
+                        <option value="ISO 9001:2008">ISO 9001:2008</option>
+                        <option value="ISO 14644">ISO 14644</option>
+                        <option value="cGMP Compliant">cGMP Compliant</option>
+                    </select>
+
+                    <div class="filter-actions-wrap">
+                        <button id="applyFiltersBtn" class="btn-filter-apply">Filter</button>
+                        <button id="clearFiltersBtn" class="btn-filter-clear">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaflet Map Container -->
+            <div id="mapfil-map" class="mapfil-map-container" style="height: 280px; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border-default); box-shadow: var(--shadow-card); margin-top: 1.25rem;"></div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= CORPORATE CLIENTS SECTION ================= -->
+    <section class="clients-section" id="clients">
+        <div class="section-wrapper">
+            <div class="section-heading" style="text-align: center;">
+                <span class="section-eyebrow">TRUSTED PARTNERSHIPS</span>
+                <h2>Sectors & Client Collaborations</h2>
+                <p>Serving leading enterprises across critical pharmaceutical, chemical, research, and healthcare verticals.</p>
+            </div>
+
+            <div class="clients-grid">
+                <div class="client-logo-box">
+                    <span class="client-icon">💊</span>
+                    <span class="client-name">Pharma Formulations</span>
+                    <span class="client-sector">Oral & Injectables</span>
+                </div>
+                <div class="client-logo-box">
+                    <span class="client-icon">🧪</span>
+                    <span class="client-name">API Synthetics</span>
+                    <span class="client-sector">Bulk Chemical Plants</span>
+                </div>
+                <div class="client-logo-box">
+                    <span class="client-icon">🏥</span>
+                    <span class="client-name">Healthcare Networks</span>
+                    <span class="client-sector">Super-Specialty OTs</span>
+                </div>
+                <div class="client-logo-box">
+                    <span class="client-icon">🔬</span>
+                    <span class="client-name">Bio-Research Institutes</span>
+                    <span class="client-sector">Vaccine & R&D Labs</span>
+                </div>
+                <div class="client-logo-box">
+                    <span class="client-icon">⚙️</span>
+                    <span class="client-name">Precision Electronics</span>
+                    <span class="client-sector">Controlled Micro-Clean</span>
+                </div>
+                <div class="client-logo-box">
+                    <span class="client-icon">🧫</span>
+                    <span class="client-name">Testing Laboratories</span>
+                    <span class="client-sector">QC / QA Infrastructure</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= CLIENT COMMENDATIONS ================= -->
+    <section class="commendations-section" id="commendations">
+        <div class="section-wrapper">
+            <div class="section-heading" style="text-align: center;">
+                <span class="section-eyebrow">REPUTATION & INTEGRITY</span>
+                <h2>Client Commendations</h2>
+                <p>What engineering and plant operations leaders say about our cleanroom and HVAC turnkey delivery.</p>
+            </div>
+
+            <div class="commendations-grid">
+                <div class="commendation-card">
+                    <div>
+                        <div class="commendation-rating">★★★★★</div>
+                        <p class="commendation-quote">
+                            "MAP FILTERS completed our cleanroom facility with exceptional precision. Their in-house panels and HVAC ducting integration delivered tight temperature and humidity control right from the initial commissioning audit."
+                        </p>
+                    </div>
+                    <div class="commendation-author-wrap">
+                        <div class="commendation-avatar">VP</div>
+                        <div class="commendation-meta">
+                            <h4>VP of Plant Engineering</h4>
+                            <p>Pharmaceutical Formulations Facility, Gujarat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commendation-card">
+                    <div>
+                        <div class="commendation-rating">★★★★★</div>
+                        <p class="commendation-quote">
+                            "Their 20+ years of cleanroom expertise shows in their equipment quality. The laminar air flow units and pass boxes operate flawlessly, and their prompt after-sales support ensures complete compliance during audits."
+                        </p>
+                    </div>
+                    <div class="commendation-author-wrap">
+                        <div class="commendation-avatar">GM</div>
+                        <div class="commendation-meta">
+                            <h4>General Manager - QA & QC</h4>
+                            <p>Bulk Drug & Research Center, Maharashtra</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commendation-card">
+                    <div>
+                        <div class="commendation-rating">★★★★★</div>
+                        <p class="commendation-quote">
+                            "From consultation through to final validation, MAP FILTERS demonstrated full turnkey capability. Our Modular Operation Theatres meet the highest NABH standards. Outstanding workmanship and professionalism."
+                        </p>
+                    </div>
+                    <div class="commendation-author-wrap">
+                        <div class="commendation-avatar">MD</div>
+                        <div class="commendation-meta">
+                            <h4>Medical Director & Project Head</h4>
+                            <p>Multispecialty Hospital & Surgical Center, Chennai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- ================= PREMIUM INDUSTRIAL CALL TO ACTION ================= -->
+    <section class="premium-cta-section" id="cta-project">
+        <div class="engineering-grid-bg" aria-hidden="true"></div>
+        <div class="digital-glow-orb" aria-hidden="true"></div>
+        <div class="airflow-stream-container" aria-hidden="true">
+            <div class="airflow-line airflow-line-1"></div>
+            <div class="airflow-line airflow-line-2"></div>
+            <div class="airflow-line airflow-line-3"></div>
+            <div class="airflow-line airflow-line-4"></div>
+        </div>
+
+        <div class="cta-inner-card">
+            <span class="cta-eyebrow-pill">
+                <span class="digital-pulse-dot" aria-hidden="true"></span>
+                LET'S BUILD THE RIGHT ENVIRONMENT
+            </span>
+            <h2 class="cta-main-heading">HAVE A CLEANROOM PROJECT IN MIND?</h2>
+            <p class="cta-description-text">
+                From cleanroom design and HVAC integration to filtration, installation and maintenance, MAP FILTERS can help you explore the right solution for your requirements.
+            </p>
+
+            <div class="cta-actions-group">
+                <button class="btn-start-project" onclick="openProjectModal('Premium CTA')">
+                    <span>START A PROJECT</span>
+                    <span class="btn-icon">↗</span>
+                </button>
+                <a href="#contact" class="btn-talk-expert">
+                    <span>TALK TO AN EXPERT</span>
+                    <span class="btn-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= UNIFIED FOOTER & CONTACT US ================= -->
+    <footer class="site-footer" id="contact">
+        <div class="section-wrapper">
+
+            <!-- Merged Contact & Headquarters Header -->
+            <div class="footer-contact-heading text-center">
+                <span class="section-eyebrow footer-eyebrow">GET IN TOUCH</span>
+                <h2 class="footer-contact-title">Contact MAP FILTERS</h2>
+                <p class="footer-contact-subtitle">
+                    Speak directly with our senior cleanroom and HVAC engineering desk or submit your project inquiry below.
+                </p>
+            </div>
+
+            <!-- Merged Contact & Address Card Grid -->
+            <div class="footer-merged-card" id="footer-contact-address">
+
+                <!-- Left Column: Official Headquarters & Factory Details -->
+                <div class="footer-merged-left">
+                    <div class="footer-address-heading-wrap">
+                        <h3 class="footer-address-heading">Headquarters &amp; Factory</h3>
+                        <span class="footer-address-subheading">MAP FILTERS INDIA PVT. LTD.</span>
+                    </div>
+
+                    <div class="footer-address-grid">
+                        <!-- Factory & Admin Office -->
+                        <div class="footer-address-entry">
+                            <div class="contact-orange-icon" aria-label="Factory Location">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-entry-body">
+                                <h4 class="contact-entry-title">Factory &amp; Admin Office :</h4>
+                                <address class="contact-entry-address">
+                                    Unit No. 10-11, Roop Naval Indl. Estate,<br>
+                                    Vidya Vikashini School Road,<br>
+                                    Fatherwadi, Vasai (E), Dist. Palghar<br>
+                                    401208, Maharashtra, (INDIA)
+                                </address>
+                                <a href="https://maps.google.com/?q=Roop+Naval+Indl+Estate+Fatherwadi+Vasai+East" target="_blank" rel="noopener noreferrer" class="contact-map-link">
+                                    <span>📍 Open in Google Maps ↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Corporate Office -->
+                        <div class="footer-address-entry">
+                            <div class="contact-orange-icon" aria-label="Corporate Office Location">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-entry-body">
+                                <h4 class="contact-entry-title">Corporate Office :</h4>
+                                <address class="contact-entry-address">
+                                    56-Cine Wonder Mall, Ground Floor,<br>
+                                    G.B. Road, Kapurbawdi, Thane (W)<br>
+                                    400601, Maharashtra, INDIA.
+                                </address>
+                                <a href="https://maps.google.com/?q=Cine+Wonder+Mall+Kapurbawdi+Thane+West" target="_blank" rel="noopener noreferrer" class="contact-map-link">
+                                    <span>📍 Open in Google Maps ↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Phone Numbers -->
+                        <div class="footer-address-entry">
+                            <div class="contact-orange-icon" aria-label="Phone Contacts">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-entry-body">
+                                <h4 class="contact-entry-title">Phone &amp; WhatsApp :</h4>
+                                <div class="contact-entry-lines">
+                                    <div><a href="tel:+919823252793">(+91) 9823252793</a> / <a href="tel:+918956050201">(+91) 8956050201</a></div>
+                                    <div><a href="tel:+918956050206">(+91) 8956050206</a> / <a href="tel:+918956050209">(+91) 8956050209</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emails -->
+                        <div class="footer-address-entry">
+                            <div class="contact-orange-icon" aria-label="Email Contacts">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                </svg>
+                            </div>
+                            <div class="contact-entry-body">
+                                <h4 class="contact-entry-title">Email Correspondence :</h4>
+                                <div class="contact-entry-lines">
+                                    <div><a href="mailto:karunakar@mapfilters.com">karunakar@mapfilters.com</a></div>
+                                    <div><a href="mailto:sales@mapfil.com">sales@mapfil.com</a> / <a href="mailto:mapfilter@gmail.com">mapfilter@gmail.com</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Websites -->
+                        <div class="footer-address-entry footer-address-entry-wide">
+                            <div class="contact-orange-icon" aria-label="Web Portals">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" x2="22" y1="12" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-entry-body">
+                                <h4 class="contact-entry-title">Websites :</h4>
+                                <div class="contact-entry-lines contact-links-inline">
+                                    <a href="https://www.mapfilters.com" target="_blank" rel="noopener noreferrer">www.mapfilters.com</a>
+                                    <span class="divider">/</span>
+                                    <a href="https://www.mapfil.com" target="_blank" rel="noopener noreferrer">www.mapfil.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Strip: ISO Badge, Socials & QR -->
+                    <div class="footer-trust-strip">
+                        <div class="footer-iso-box">
+                            <img src="iso-certifications.png" alt="URS UKAS NABCB ISO 9001:2015 Accredited Organisation" class="footer-iso-badge-img">
+                            <div class="footer-iso-title">ISO 9001:2015</div>
+                            <div class="footer-iso-subtitle">CERTIFIED ORGANISATION</div>
+                        </div>
+
+                        <div class="footer-social-section">
+                            <div class="footer-social-heading">FOLLOW US ON</div>
+                            <div class="footer-social-icons">
+                                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" aria-label="Follow Map Filters on Facebook">
+                                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.597 1.323-1.326V1.326C24 .597 23.405 0 22.675 0z"/></svg>
+                                </a>
+                                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" aria-label="Follow Map Filters on Instagram">
+                                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn twitter" aria-label="Follow Map Filters on Twitter / X">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=919823252793" target="_blank" rel="noopener noreferrer" class="social-icon-btn whatsapp" aria-label="Connect with Map Filters on WhatsApp">
+                                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                </a>
+                                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" aria-label="Follow Map Filters on YouTube">
+                                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="footer-qr-card">
+                            <img src="mapfil-qr.svg" alt="Scan to visit www.mapfilters.com" class="footer-qr-img">
+                            <span class="footer-qr-caption">Scan for Web &amp; Catalogue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Direct Cleanroom RFQ Inquiry Form -->
+                <div class="footer-merged-right">
+                    <div class="footer-rfq-panel">
+                        <div class="footer-rfq-header">
+                            <span class="footer-rfq-badge">FAST RESPONSE</span>
+                            <h3 class="footer-rfq-title">Submit Cleanroom RFQ</h3>
+                            <p class="footer-rfq-desc">Fill in your facility specs for technical consultation and custom quotation within 2 hours.</p>
+                        </div>
+
+                        <form class="footer-quote-form" onsubmit="handleFooterInquirySubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="footerFullName">Full Name *</label>
+                                    <input type="text" id="footerFullName" required placeholder="e.g. Rajesh Patel">
+                                </div>
+                                <div class="form-group">
+                                    <label for="footerCompany">Company / Plant Name *</label>
+                                    <input type="text" id="footerCompany" required placeholder="e.g. Cadila Healthcare / R&amp;D">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="footerEmail">Work Email *</label>
+                                    <input type="email" id="footerEmail" required placeholder="name@company.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="footerPhone">Phone / WhatsApp *</label>
+                                    <input type="tel" id="footerPhone" required placeholder="e.g. +91 98765 43210">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="footerProduct">Primary Requirement *</label>
+                                <select id="footerProduct" required>
+                                    <option value="Turnkey Clean Rooms">Turnkey Clean Rooms (ISO 5 - ISO 8)</option>
+                                    <option value="Cleanroom Equipment">Cleanroom Equipment (LAF, Pass Box, Bio Safety)</option>
+                                    <option value="Modular Panels & Doors">Modular Panels &amp; Hermetic Cleanroom Doors</option>
+                                    <option value="Modular Operation Theatre">Modular Operation Theatre (OT)</option>
+                                    <option value="HVAC Systems">HVAC Systems &amp; Custom AHUs</option>
+                                    <option value="HEPA Air & Pre Filters">HEPA Air &amp; Pre Filters</option>
+                                    <option value="AMC Services">AMC Services &amp; Re-Validation</option>
+                                    <option value="Laboratory Furniture">Laboratory Furniture &amp; Casework</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="footerMessage">Project Details / Specifications</label>
+                                <textarea id="footerMessage" rows="2" placeholder="Plant area (sq. ft.), cleanliness class, temperature/RH requirements..."></textarea>
+                            </div>
+
+                            <button type="submit" class="footer-submit-btn">
+                                <span>Submit Project Inquiry</span>
+                                <span>↗</span>
+                            </button>
+
+                            <div class="footer-form-privacy">
+                                🔒 Direct engineering desk. Confidential project consultation assured.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Navigation Grid -->
+            <div class="footer-grid">
+
+                <div class="footer-col brand-col">
+                    <a href="#hero" class="footer-brand">
+                        <img src="mapfil-logo.png" alt="MAP FILTERS INDIA PVT. LTD." class="footer-logo">
+                    </a>
+                    <p class="footer-desc">
+                        MAP FILTERS INDIA PVT. LTD. is an established ISO 9001:2015 certified organisation, committed to providing complete solutions of clean room &amp; HVAC for Pharmaceutical, Chemical, Research and Allied Industries.
+                    </p>
+                    <div class="footer-cert-tags">
+                        <span>ISO 9001:2015</span>
+                        <span>ISO 14644</span>
+                        <span>cGMP Compliant</span>
+                        <span>Clean Room Creators</span>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Cleanroom Solutions</h4>
+                    <ul class="footer-links">
+                        <li><a href="#products" onclick="openQuoteModal('Footer Link', 'Clean Rooms')">Turnkey Clean Rooms</a></li>
+                        <li><a href="#products" onclick="openQuoteModal('Footer Link', 'Cleanroom Equipment')">Cleanroom Equipment</a></li>
+                        <li><a href="#products" onclick="openQuoteModal('Footer Link', 'Panels & Doors')">Modular Panels &amp; Doors</a></li>
+                        <li><a href="#products" onclick="openQuoteModal('Footer Link', 'Modular Operation Theatre')">Modular Operation Theatre</a></li>
+                        <li><a href="#products" onclick="openQuoteModal('Footer Link', 'HVAC Systems')">Cleanroom HVAC &amp; AHUs</a></li>
+                        <li><a href="#products" onclick="openQuoteModal('Footer Link', 'HEPA Air & Pre Filters')">HEPA Air &amp; Pre Filters</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Technical Standards</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">ISO 9001:2015 Certified</a></li>
+                        <li><a href="#about">ISO 14644 Cleanliness Classes</a></li>
+                        <li><a href="#about">cGMP &amp; WHO Compliance</a></li>
+                        <li><a href="#about">NABH Modular OT Standards</a></li>
+                        <li><a href="#about">DOP Filter Integrity Validation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Engineering Desk</h4>
+                    <p style="font-size: 12px; line-height: 1.55; color: #94a3b8; margin-bottom: 0.85rem;">
+                        Connect directly with our senior cleanroom and HVAC engineering desk for turnkey project estimates, drawings, and RFQs.
+                    </p>
+                    <button class="footer-rfq-btn" onclick="openQuoteModal('Footer RFQ')">
+                        Submit RFQ Online →
+                    </button>
+                    <div style="margin-top: 0.85rem;">
+                        <a href="https://api.whatsapp.com/send?phone=919823252793&text=Hello%20MAP%20FILTERS,%20I%20would%20like%20a%20project%20quote." target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #25D366; font-weight: 700; text-decoration: none;">
+                            <span>💬 WhatsApp Engineering Desk</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="section-wrapper bottom-flex">
+                <p>© 2026 MAP FILTERS INDIA PVT. LTD. All Rights Reserved. Clean Room Creators.</p>
+                <div class="bottom-links">
+                    <a href="#about">About Us</a>
+                    <a href="#products">Products</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+        <!-- ================= START A PROJECT MODAL ================= -->
+    <div class="modal-backdrop" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <div class="modal-dialog project-modal-dialog">
+            <button class="modal-close" onclick="closeProjectModal()" aria-label="Close dialog">✕</button>
+
+            <div class="modal-header">
+                <span class="modal-eyebrow">START A PROJECT</span>
+                <h3 id="projectModalTitle">Cleanroom Project Enquiry</h3>
+                <p>Provide your facility parameters. Our senior cleanroom and HVAC engineering team will contact you directly.</p>
+            </div>
+
+            <form class="quote-form" id="projectEnquiryForm" onsubmit="handleProjectEnquirySubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectName">Full Name *</label>
+                        <input type="text" id="projectName" name="name" required placeholder="e.g. Ramesh Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label for="projectCompany">Company / Plant Name *</label>
+                        <input type="text" id="projectCompany" name="company" required placeholder="e.g. Cadila Healthcare / Lab Unit">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectPhone">Phone Number *</label>
+                        <input type="tel" id="projectPhone" name="phone" required placeholder="e.g. +91 98765 43210">
+                    </div>
+                    <div class="form-group">
+                        <label for="projectEmail">Work Email *</label>
+                        <input type="email" id="projectEmail" name="email" required placeholder="name@company.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectIndustry">Industry *</label>
+                    <select id="projectIndustry" name="industry" required>
+                        <option value="">Select your industry...</option>
+                        <option value="Pharmaceutical">Pharmaceutical</option>
+                        <option value="Chemical">Chemical</option>
+                        <option value="Research">Research</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Laboratory">Laboratory</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectRequirement">Requirement *</label>
+                    <textarea id="projectRequirement" name="requirement" rows="3" required placeholder="Describe your facility scope (e.g. ISO 7 cleanroom, modular panels, custom AHU, filtration, area in sq. ft.)..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary-red submit-btn">
+                    SUBMIT ENQUIRY ↗
+                </button>
+
+                <div class="form-privacy">
+                    🔒 Direct engineering desk. Confidential project consultation assured.
+                </div>
+            </form>
+
+            <div class="status-card" id="projectStatusCard" style="display:none;">
+                <div class="status-card-icon">📋</div>
+                <h4>Enquiry Details Prepared</h4>
+                <p id="projectStatusMsg">
+                    Your project parameters have been recorded in this browser session. For instant dispatch without waiting for backend processing, you can connect directly with our desk:
+                </p>
+                <div class="status-actions-wrap">
+                    <a href="#" id="projectWhatsAppBtn" target="_blank" rel="noopener noreferrer" class="btn-dispatch-whatsapp">
+                        <span>💬 Dispatch via WhatsApp</span>
+                    </a>
+                    <a href="#" id="projectEmailBtn" class="btn-dispatch-email">
+                        <span>✉️ Send via Work Email</span>
+                    </a>
+                </div>
+                <button class="btn-primary-red" style="margin-top: 1.25rem; width: 100%;" onclick="closeProjectModal()">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+<!-- ================= REQUEST A QUOTE MODAL ================= -->
+    <div class="modal-backdrop" id="quoteModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-dialog">
+            <button class="modal-close" onclick="closeQuoteModal()" aria-label="Close dialog">✕</button>
+
+            <div class="modal-header">
+                <span class="modal-eyebrow">FAST INDUSTRIAL RFQ</span>
+                <h3 id="modalTitle">Request a Cleanroom Quote</h3>
+                <p>Submit your facility specifications. Our technical cleanroom engineers respond within 2 business hours.</p>
+            </div>
+
+            <form class="quote-form" id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+                <input type="hidden" id="quoteSource" name="source" value="General Inquiry">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" required placeholder="e.g. Ramesh Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">Company / Plant Name *</label>
+                        <input type="text" id="companyName" required placeholder="e.g. Sun Pharma / Torrent Lab">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Work Email *</label>
+                        <input type="email" id="email" required placeholder="name@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone / WhatsApp Number *</label>
+                        <input type="tel" id="phone" required placeholder="e.g. +91 98765 43210">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productSelect">Product Requirement *</label>
+                        <select id="productSelect">
+                            <option value="Clean Rooms">Turnkey Clean Rooms (ISO 5 - ISO 8)</option>
+                            <option value="Cleanroom Equipment">Cleanroom Equipment (LAF, Pass Box, Bio Safety)</option>
+                            <option value="Panels & Doors">Panels & Cleanroom Doors</option>
+                            <option value="Modular Operation Theatre">Modular Operation Theatre (OT)</option>
+                            <option value="HVAC Systems">HVAC Systems & Custom AHUs</option>
+                            <option value="HEPA Air & Pre Filters">HEPA Air & Pre Filters</option>
+                            <option value="AMC Services">AMC Services & Re-Validation</option>
+                            <option value="Laboratory Furniture">Laboratory Furniture & Casework</option>
+                            <option value="Turnkey Cleanroom Project">Complete Turnkey Cleanroom & HVAC Project</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Estimated Plant Area / Units</label>
+                        <input type="text" id="quantity" placeholder="e.g. 5,000 sq. ft. / 4 Units">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Specific Requirements / Regulatory Standards</label>
+                    <textarea id="notes" rows="3" placeholder="Specify cleanliness class (ISO 5/7/8), cGMP requirements, temperature/RH limits, or drawing attachments..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary-red submit-btn">
+                    Submit Request for Quote ↗
+                </button>
+
+                <div class="form-privacy">
+                    🔒 Direct manufacturer pricing. Your facility data is protected by strict confidentiality.
+                </div>
+            </form>
+
+            <div class="modal-success" id="modalSuccess" style="display:none;">
+                <div class="success-icon">✓</div>
+                <h3>Quote Request Received!</h3>
+                <p>Thank you. A MAP FILTERS INDIA PVT. LTD. technical cleanroom engineer has been assigned and will send your formal technical quotation shortly.</p>
+                <button class="btn-primary-red" onclick="closeQuoteModal()">Done</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Interactive Component Controller -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

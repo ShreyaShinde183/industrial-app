@@ -1,0 +1,588 @@
+/* ==========================================================================
+   MAP FILTERS INDIA PVT. LTD. — Map Filters Component Stylesheet
+   Clean Room Creators & Complete HVAC Solutions
+   ========================================================================== */
+
+.mapfil-map-filters-section,
+.mapfil-map-filters-section {
+    padding: 3.25rem 0 3.5rem;
+    background-color: #F7F9FA;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #10182B;
+}
+
+.map-filters-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Section Header */
+.map-section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 1.75rem auto;
+}
+
+.map-header-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00632e;
+    background: rgba(0, 99, 46, 0.08);
+    border: 1px solid rgba(0, 99, 46, 0.25);
+    padding: 0.35rem 0.95rem;
+    border-radius: 9999px;
+    margin-bottom: 0.85rem;
+}
+
+.accent-dot-red {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ED0000;
+    box-shadow: 0 0 6px rgba(237, 0, 0, 0.4);
+}
+
+.accent-dot-blue,
+.accent-dot-green {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00632e;
+    box-shadow: 0 0 6px rgba(0, 99, 46, 0.4);
+}
+
+.map-section-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: #10182B;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 0.85rem;
+}
+
+.map-section-subtitle {
+    font-size: 1.05rem;
+    color: #4B5563;
+    line-height: 1.6;
+}
+
+/* Two-Column Layout (Desktop) */
+.map-filters-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+/* Left Filter Panel */
+.filter-panel-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+    padding: 1.25rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.panel-title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #F1F5F9;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+}
+
+.panel-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #10182B;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.results-badge {
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(0, 99, 46, 0.1);
+    color: #00632e;
+    border: 1px solid rgba(0, 99, 46, 0.2);
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+}
+
+/* Filter Controls */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.filter-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #374151;
+    letter-spacing: 0.01em;
+}
+
+/* Search Input */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    padding: 0.48rem 2.25rem 0.48rem 0.75rem;
+    font-size: 13.5px;
+    color: #10182B;
+    transition: all 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: #ED0000;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(237, 0, 0, 0.1);
+    outline: none;
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #9CA3AF;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.search-clear-btn:hover {
+    color: #10182B;
+}
+
+/* Dropdown Selects */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.filter-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    padding: 0.48rem 2rem 0.48rem 0.75rem;
+    font-size: 13.5px;
+    color: #10182B;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-select:focus {
+    border-color: #ED0000;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(237, 0, 0, 0.1);
+    outline: none;
+}
+
+.filter-select:disabled {
+    background: #F1F5F9;
+    color: #9CA3AF;
+    cursor: not-allowed;
+    border-color: #E2E8F0;
+}
+
+.select-chevron {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #64748B;
+    pointer-events: none;
+}
+
+/* Filter Actions */
+.filter-buttons-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-top: 0.25rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid #F1F5F9;
+}
+
+.btn-apply-filters {
+    background: #ED0000;
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ED0000;
+    box-shadow: 0 4px 14px rgba(237, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-apply-filters:hover {
+    background: #C40000;
+    border-color: #C40000;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(237, 0, 0, 0.4);
+}
+
+.btn-clear-filters {
+    background: transparent;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.48rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-clear-filters:hover {
+    background: #F8FAFC;
+    color: #10182B;
+    border-color: #CBD5E1;
+}
+
+/* Right Map Container */
+.map-display-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.map-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+    font-size: 13px;
+    color: #64748B;
+}
+
+.map-status-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.map-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00632e;
+    box-shadow: 0 0 0 3px rgba(0, 99, 46, 0.2);
+}
+
+.map-canvas-container {
+    width: 100%;
+    height: 280px;
+    min-height: 280px;
+    position: relative;
+    background: #E5E7EB;
+    z-index: 1;
+}
+
+/* Leaflet Custom Marker & Popup Styles */
+.mapfil-map-pin,
+.mapfil-map-pin {
+    width: 32px;
+    height: 32px;
+    border-radius: 50% 50% 50% 0;
+    background: #00632e;
+    position: absolute;
+    transform: rotate(-45deg);
+    left: 50%;
+    top: 50%;
+    margin: -20px 0 0 -16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 99, 46, 0.4);
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mapfil-map-pin.pin-hq,
+.mapfil-map-pin.pin-hq {
+    background: #D3121A;
+    box-shadow: 0 4px 10px rgba(211, 18, 26, 0.4);
+}
+
+.mapfil-map-pin::after,
+.mapfil-map-pin::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+.mapfil-map-pin:hover,
+.mapfil-map-pin:hover {
+    transform: rotate(-45deg) scale(1.15);
+}
+
+/* Location Card inside Map Popup */
+.leaflet-popup-content-wrapper {
+    border-radius: 12px !important;
+    padding: 0 !important;
+    box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid #E2E8F0 !important;
+    overflow: hidden;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    line-height: normal !important;
+}
+
+.mapfil-location-card,
+.mapfil-location-card {
+    padding: 1.25rem;
+    min-width: 250px;
+    max-width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #FFFFFF;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.loc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.loc-badge-type {
+    font-size: 10.5px;
+    font-weight: 700;
+    background: #F1F5F9;
+    color: #475569;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+}
+
+.loc-badge-hq {
+    font-size: 10.5px;
+    font-weight: 800;
+    background: rgba(211, 18, 26, 0.1);
+    color: #D3121A;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+}
+
+.loc-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: #10182B;
+    margin: 0;
+}
+
+.loc-city-country {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #00632e;
+    margin: 0;
+}
+
+.loc-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.4rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid #F1F5F9;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.loc-detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.loc-label {
+    color: #64748B;
+    font-weight: 600;
+}
+
+.loc-value {
+    color: #10182B;
+    font-weight: 700;
+}
+
+.tag-cert {
+    color: #ED0000;
+    background: rgba(237, 0, 0, 0.08);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+}
+
+.loc-address {
+    font-size: 11.5px;
+    color: #64748B;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.loc-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.btn-view-details {
+    flex: 1;
+    background: #ED0000;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0.45rem 0.75rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s ease;
+}
+
+.btn-view-details:hover {
+    background: #C40000;
+}
+
+.btn-loc-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #F1F5F9;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #10182B;
+}
+
+.btn-loc-call:hover {
+    background: #E2E8F0;
+}
+
+/* Active Location Drawer / Card Modal */
+.active-location-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    max-width: 320px;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+    .map-filters-grid {
+        grid-template-columns: 35% 65%;
+        gap: 1.5rem;
+    }
+
+    .map-canvas-container {
+        height: 280px;
+        min-height: 280px;
+    }
+}
+
+/* Mobile Devices (860px and below) */
+@media (max-width: 860px) {
+    .mapfil-map-filters-section {
+        padding: 4rem 0;
+    }
+
+    .map-filters-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .filter-panel-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .map-canvas-container {
+        height: 250px;
+        min-height: 250px;
+    }
+
+    .map-section-header {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* Small Screens & Mobile 390px (Zero Horizontal Scroll Guarantee) */
+@media (max-width: 420px) {
+    .map-filters-container {
+        padding: 0 1rem;
+    }
+
+    .map-section-title {
+        font-size: 1.85rem;
+    }
+
+    .map-section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .filter-panel-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .map-canvas-container {
+        height: 220px;
+        min-height: 220px;
+    }
+}
