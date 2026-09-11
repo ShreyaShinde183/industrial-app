@@ -126,6 +126,23 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.classList.toggle('is-open');
     };
 
+    /* ----------------------------------------------------------------------
+       2B. Product & Service Card Description Drawer Toggle
+       ---------------------------------------------------------------------- */
+    window.toggleCardDescription = function (button) {
+        if (!button) return;
+        const card = button.closest('.cleanroom-card, .solution-step-card, .industry-cleanroom-card');
+        if (!card) return;
+
+        const isExpanded = card.classList.toggle('is-desc-expanded');
+        button.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+        const toggleText = button.querySelector('.btn-toggle-text');
+        if (toggleText) {
+            toggleText.textContent = isExpanded ? 'Hide Description' : 'View Description';
+        }
+    };
+
     // Close mobile menu when a navigation item is clicked
     if (mainNav) {
         mainNav.querySelectorAll('a').forEach(link => {
@@ -133,6 +150,84 @@ document.addEventListener('DOMContentLoaded', () => {
                 mainNav.classList.remove('is-open');
             });
         });
+    }
+
+    /* ----------------------------------------------------------------------
+       2C. Hero Background Slider (3s Auto-rotation with Ken Burns Zoom & Live Effect)
+       ---------------------------------------------------------------------- */
+    const heroSlides = document.querySelectorAll('.hero-bg-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    const heroCounter = document.getElementById('heroSlideCounter');
+
+    if (heroSlides && heroSlides.length > 0) {
+        let currentSlideIdx = 0;
+        let heroTimer = null;
+        const SLIDE_DURATION = 3000;
+
+        function renderHeroSlide(index) {
+            heroSlides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('is-previous');
+                    // Force restart of CSS keyframe animation by reflow
+                    slide.classList.remove('is-active');
+                    void slide.offsetWidth;
+                    slide.classList.add('is-active');
+                } else if (slide.classList.contains('is-active')) {
+                    slide.classList.remove('is-active');
+                    slide.classList.add('is-previous');
+                    setTimeout(() => {
+                        slide.classList.remove('is-previous');
+                    }, 850);
+                } else {
+                    slide.classList.remove('is-active', 'is-previous');
+                }
+            });
+
+            if (heroDots && heroDots.length > 0) {
+                heroDots.forEach((dot, i) => {
+                    dot.classList.remove('is-active');
+                    if (i === index) {
+                        void dot.offsetWidth;
+                        dot.classList.add('is-active');
+                    }
+                });
+            }
+
+            if (heroCounter) {
+                heroCounter.textContent = `0${index + 1} / 0${heroSlides.length}`;
+            }
+
+            currentSlideIdx = index;
+        }
+
+        function nextHeroSlide() {
+            const nextIdx = (currentSlideIdx + 1) % heroSlides.length;
+            renderHeroSlide(nextIdx);
+        }
+
+        function restartHeroTimer() {
+            if (heroTimer) clearInterval(heroTimer);
+            heroTimer = setInterval(nextHeroSlide, SLIDE_DURATION);
+        }
+
+        window.jumpToHeroSlide = function (index) {
+            if (index === currentSlideIdx) return;
+            renderHeroSlide(index);
+            restartHeroTimer();
+        };
+
+        // Pause timer on inactive tab to save battery and resume cleanly
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (heroTimer) clearInterval(heroTimer);
+            } else {
+                restartHeroTimer();
+            }
+        });
+
+        // Initialize first slide and start 3s loop
+        renderHeroSlide(0);
+        restartHeroTimer();
     }
 
     /* ----------------------------------------------------------------------
@@ -659,7 +754,44 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             map.invalidateSize();
         }, 300);
+
+        window.addEventListener('resize', () => {
+            map.invalidateSize();
+        });
+
+        // Invalidate map on scroll into view
+        if ('IntersectionObserver' in window && mapContainer) {
+            const mapObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        map.invalidateSize();
+                    }
+                });
+            }, { threshold: 0.1 });
+            mapObserver.observe(mapContainer);
+        }
     }
+
+    /* ----------------------------------------------------------------------
+       4B. Guaranteed Attachment: Map always attached to Footer
+       Ensures the map and footer stay together across page changes, routing,
+       or dynamic view openings.
+       ---------------------------------------------------------------------- */
+    function ensureMapAttachedToFooter() {
+        const footer = document.querySelector('footer.site-footer, #contact');
+        const mapSection = document.getElementById('find-us') || document.querySelector('.mapfil-map-filters-section');
+        if (footer && mapSection && !footer.contains(mapSection)) {
+            footer.insertBefore(mapSection, footer.firstChild);
+        }
+    }
+    ensureMapAttachedToFooter();
+    window.addEventListener('popstate', ensureMapAttachedToFooter);
+    window.addEventListener('hashchange', () => {
+        ensureMapAttachedToFooter();
+        if (window.location.hash === '#find-us' || window.location.hash === '#contact') {
+            setTimeout(() => window.dispatchEvent(new Event('resize')), 150);
+        }
+    });
 
 
     /* ----------------------------------------------------------------------
