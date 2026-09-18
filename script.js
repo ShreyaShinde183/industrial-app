@@ -3,59 +3,81 @@
    Clean Room Creators & Complete HVAC Solution Providers
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    /* ----------------------------------------------------------------------
-       1. Interactive "Request a Quote" Modal
-       ---------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------
+   1. Interactive "Request a Quote" Modal (Global Window Handlers)
+   ---------------------------------------------------------------------- */
+window.openQuoteModal = function (source = 'Direct Inquiry', productName = null) {
     const modal = document.getElementById('quoteModal');
+    if (!modal) {
+        console.warn('Quote modal element #quoteModal not found in DOM.');
+        return;
+    }
     const quoteForm = document.getElementById('quoteForm');
     const modalSuccess = document.getElementById('modalSuccess');
     const sourceInput = document.getElementById('quoteSource');
     const productSelect = document.getElementById('productSelect');
 
-    window.openQuoteModal = function (source = 'Direct Inquiry', productName = null) {
-        if (!modal) return;
-        
-        if (sourceInput) {
-            sourceInput.value = source;
-        }
+    if (sourceInput) {
+        sourceInput.value = source;
+    }
 
-        if (productName && productSelect) {
-            let found = false;
-            for (let opt of productSelect.options) {
-                if (opt.value.toLowerCase().includes(productName.toLowerCase()) || productName.toLowerCase().includes(opt.value.toLowerCase())) {
-                    opt.selected = true;
-                    found = true;
-                    break;
-                }
-            }
-            if (!found && productSelect.options.length > 0) {
-                productSelect.selectedIndex = 0;
+    if (productName && productSelect) {
+        let found = false;
+        for (let opt of productSelect.options) {
+            if (opt.value.toLowerCase().includes(productName.toLowerCase()) || productName.toLowerCase().includes(opt.value.toLowerCase())) {
+                opt.selected = true;
+                found = true;
+                break;
             }
         }
-
-        // Reset display states
-        if (quoteForm) quoteForm.style.display = 'flex';
-        if (modalSuccess) modalSuccess.style.display = 'none';
-
-        modal.classList.add('is-active');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        // Focus first input for accessibility
-        const firstInput = modal.querySelector('input:not([type="hidden"])');
-        if (firstInput) {
-            setTimeout(() => firstInput.focus(), 100);
+        if (!found && productSelect.options.length > 0) {
+            productSelect.selectedIndex = 0;
         }
-    };
+    }
 
-    window.closeQuoteModal = function () {
-        if (!modal) return;
-        modal.classList.remove('is-active');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    };
+    // Reset display states
+    if (quoteForm) quoteForm.style.display = 'flex';
+    if (modalSuccess) modalSuccess.style.display = 'none';
+
+    modal.classList.add('is-active');
+    modal.style.opacity = '1';
+    modal.style.visibility = 'visible';
+    modal.style.pointerEvents = 'auto';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Focus first input for accessibility
+    const firstInput = modal.querySelector('input:not([type="hidden"])');
+    if (firstInput) {
+        setTimeout(() => firstInput.focus(), 100);
+    }
+};
+
+window.closeQuoteModal = function () {
+    const modal = document.getElementById('quoteModal');
+    if (!modal) return;
+    modal.classList.remove('is-active');
+    modal.style.opacity = '';
+    modal.style.visibility = '';
+    modal.style.pointerEvents = '';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+};
+
+function initApp() {
+    const modal = document.getElementById('quoteModal');
+    const quoteForm = document.getElementById('quoteForm');
+    const modalSuccess = document.getElementById('modalSuccess');
+
+    // Attach click listeners to all Curious buttons as a fallback
+    document.querySelectorAll('.quote-nav-btn, .btn-secondary-navy, .btn-card-curious').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Ensure modal opens reliably
+            const source = btn.dataset.source || 'Curious Action';
+            const product = btn.dataset.product || null;
+            window.openQuoteModal(source, product);
+        });
+    });
 
     // Close on backdrop click
     if (modal) {
@@ -74,23 +96,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Form submission handler
-    window.handleQuoteSubmit = function (event) {
+       window.handleQuoteSubmit = async function (event) {
         event.preventDefault();
         const submitBtn = quoteForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
 
+        // Collect form data
+        const payload = {
+            name: quoteForm.querySelector('input[placeholder*="Name"]').value,
+            email: quoteForm.querySelector('input[type="email"]').value,
+            phone: quoteForm.querySelector('input[type="tel"]').value,
+            product: document.getElementById('productSelect')?.value,
+            details: document.getElementById('quoteDetails')?.value,
+            source: document.getElementById('quoteSource')?.value
+        };
+
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Submitting Cleanroom RFQ... ⏳';
 
-        // Simulate fast server response
-        setTimeout(() => {
+        try {
+            const response = await fetch('http://localhost:5000/api/quote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                if (quoteForm) quoteForm.style.display = 'none';
+                if (modalSuccess) modalSuccess.style.display = 'block';
+                quoteForm.reset();
+            } else {
+                alert('Server error, please try again.');
+            }
+        } catch (err) {
+            console.error('Backend connection failed:', err);
+            alert('Unable to connect to backend server. Make sure it is running on port 5000.');
+        } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
-            if (quoteForm) quoteForm.style.display = 'none';
-            if (modalSuccess) modalSuccess.style.display = 'block';
-        }, 600);
+        }
     };
-
     // Footer Inquiry Form Submission Handler
     window.handleFooterInquirySubmit = function (event) {
         event.preventDefault();
@@ -804,25 +849,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectEmailBtn = document.getElementById('projectEmailBtn');
 
     window.openProjectModal = function (source = 'Direct Inquiry') {
-        if (!projectModal) return;
+        const modalEl = document.getElementById('projectModal');
+        if (!modalEl) return;
+        const formEl = document.getElementById('projectEnquiryForm');
+        const cardEl = document.getElementById('projectStatusCard');
 
-        if (projectForm) projectForm.style.display = 'flex';
-        if (projectStatusCard) projectStatusCard.style.display = 'none';
+        if (formEl) formEl.style.display = 'flex';
+        if (cardEl) cardEl.style.display = 'none';
 
-        projectModal.classList.add('is-active');
-        projectModal.setAttribute('aria-hidden', 'false');
+        modalEl.classList.add('is-active');
+        modalEl.style.opacity = '1';
+        modalEl.style.visibility = 'visible';
+        modalEl.style.pointerEvents = 'auto';
+        modalEl.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
 
-        const firstInput = projectModal.querySelector('input:not([type="hidden"])');
+        const firstInput = modalEl.querySelector('input:not([type="hidden"])');
         if (firstInput) {
             setTimeout(() => firstInput.focus(), 100);
         }
     };
 
     window.closeProjectModal = function () {
-        if (!projectModal) return;
-        projectModal.classList.remove('is-active');
-        projectModal.setAttribute('aria-hidden', 'true');
+        const modalEl = document.getElementById('projectModal');
+        if (!modalEl) return;
+        modalEl.classList.remove('is-active');
+        modalEl.style.opacity = '';
+        modalEl.style.visibility = '';
+        modalEl.style.pointerEvents = '';
+        modalEl.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     };
 
@@ -1220,7 +1275,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initStickyHeaderScroll();
     initIndustriesCarousel();
+}
 
-});
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
+
 
 
