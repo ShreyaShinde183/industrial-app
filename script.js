@@ -103,12 +103,14 @@ function initApp() {
 
         // Collect form data
         const payload = {
-            name: quoteForm.querySelector('input[placeholder*="Name"]').value,
-            email: quoteForm.querySelector('input[type="email"]').value,
-            phone: quoteForm.querySelector('input[type="tel"]').value,
-            product: document.getElementById('productSelect')?.value,
-            details: document.getElementById('quoteDetails')?.value,
-            source: document.getElementById('quoteSource')?.value
+            name: document.getElementById('fullName')?.value || quoteForm.querySelector('input[placeholder*="Name"]')?.value || '',
+            company: document.getElementById('companyName')?.value || '',
+            email: document.getElementById('email')?.value || '',
+            phone: document.getElementById('phone')?.value || '',
+            product: document.getElementById('productSelect')?.value || '',
+            quantity: document.getElementById('quantity')?.value || '',
+            notes: document.getElementById('notes')?.value || '',
+            source: document.getElementById('quoteSource')?.value || 'Website'
         };
 
         submitBtn.disabled = true;
