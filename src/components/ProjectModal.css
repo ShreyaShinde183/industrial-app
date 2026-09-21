@@ -1,0 +1,92 @@
+/* --------------------------------------------------------------------------
+   16b. Start a Project Modal & Form
+   -------------------------------------------------------------------------- */
+.project-modal-dialog {
+    max-width: 640px;
+}
+
+.status-card {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.25rem;
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+.status-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--brand-blue-light);
+    color: var(--brand-blue);
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem auto;
+    border: 2px solid var(--brand-blue-subtle);
+}
+
+.status-card h4 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-headline);
+    margin-bottom: 0.5rem;
+}
+
+.status-card p {
+    font-size: 13.5px;
+    color: var(--text-body);
+    line-height: 1.55;
+    margin-bottom: 0.85rem;
+}
+
+.status-actions-wrap {
+    display: flex;
+    gap: 0.85rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-dispatch-whatsapp {
+    background: #25d366;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0.75rem 1.4rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+}
+
+.btn-dispatch-whatsapp:hover {
+    background: #1ebd5a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-dispatch-email {
+    background: var(--brand-navy);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0.75rem 1.4rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+}
+
+.btn-dispatch-email:hover {
+    background: var(--brand-navy-light);
+    transform: translateY(-2px);
+}
+
+

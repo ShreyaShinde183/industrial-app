@@ -1,0 +1,97 @@
+/* 4. Floating Sticky Widgets */
+.floating-brochure-btn {
+    position: fixed;
+    bottom: 88px;
+    left: 24px;
+    z-index: 999;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+    filter: drop-shadow(0 4px 12px rgba(242, 92, 5, 0.45));
+}
+
+.floating-brochure-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    filter: drop-shadow(0 6px 18px rgba(242, 92, 5, 0.65));
+}
+
+.floating-brochure-img {
+    height: 44px;
+    width: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+.floating-wa-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
+    z-index: 999;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.floating-wa-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.65);
+    color: #ffffff;
+}
+
+/* Responsive Footer Adjustments */
+@media (max-width: 1024px) {
+    .footer-content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .footer-address-pane {
+        grid-column: 1 / -1;
+    }
+    .footer-branches-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+    .footer-branches-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .footer-reach-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .footer-cta-content {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+    .floating-wa-btn {
+        bottom: 16px;
+        left: 16px;
+        width: 46px;
+        height: 46px;
+    }
+    .floating-brochure-btn {
+        bottom: 70px;
+        left: 16px;
+    }
+    .floating-brochure-img {
+        height: 38px;
+    }
+}
+

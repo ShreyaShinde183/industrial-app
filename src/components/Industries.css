@@ -1,0 +1,377 @@
+/* --------------------------------------------------------------------------
+   10. Industries We Serve (6 Cards)
+   -------------------------------------------------------------------------- */
+.industries-cleanroom-section {
+    padding: 1.85rem 0 2rem;
+    background: var(--bg-subtle);
+}
+
+/* Header with Navigation Controls (Tech Mahindra Reference Layout) */
+.industries-header-flex {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.industries-header-flex .industries-heading {
+    text-align: left;
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.industries-carousel-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.carousel-nav-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #0B1B3D;
+    color: #ffffff;
+    border: 1.5px solid #1E293B;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 3px 8px rgba(11, 27, 61, 0.18);
+    user-select: none;
+}
+
+.carousel-nav-btn:hover:not(:disabled) {
+    background: var(--brand-blue);
+    border-color: var(--brand-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 99, 46, 0.28);
+}
+
+.carousel-nav-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.carousel-nav-btn:disabled,
+.carousel-nav-btn.is-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background: #94A3B8;
+    border-color: #CBD5E1;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Carousel Outer Wrapper */
+.industries-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+/* Single Horizontal Scrolling Track */
+.industries-cleanroom-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 14px 6px 26px 6px;
+    margin: 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.industries-cleanroom-track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* Industry Cards in Carousel */
+/* Industry Cards in Carousel */
+.industry-cleanroom-card {
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    border-top: 4px solid var(--card-accent, var(--brand-blue));
+    border-radius: var(--radius-md);
+    padding: 0 0 1.25rem 0;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.3s ease,
+                background 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+    position: relative;
+    cursor: pointer;
+    will-change: transform, box-shadow;
+}
+
+.industries-cleanroom-track .industry-cleanroom-card {
+    /* Show ~4.4 cards on desktop so 4 are completely visible and 5th card peeks */
+    flex: 0 0 calc((100% - (4 * 16px)) / 4.4);
+    min-width: 0;
+    height: auto;
+    box-sizing: border-box;
+}
+
+/* Active Highlight Card while Staying */
+.industry-cleanroom-card.is-active-card {
+    border-color: var(--card-accent, var(--brand-blue));
+    box-shadow: 0 8px 24px -4px var(--card-accent-glow, rgba(0, 99, 46, 0.2)),
+                0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Subtle Pop-Up / Scale and Rich Color Glow Hover Animation */
+.industry-cleanroom-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--card-accent, var(--brand-blue));
+    box-shadow: 0 20px 38px -8px var(--card-accent-glow, rgba(0, 99, 46, 0.24)),
+                0 6px 16px rgba(0, 0, 0, 0.06);
+    z-index: 5;
+}
+
+/* Full High-Definition Industry Visual Presentation */
+.ind-app-img-wrap {
+    width: 100%;
+    height: 160px;
+    border-radius: 0;
+    overflow: hidden;
+    margin-bottom: 0.95rem;
+    border: none;
+    border-bottom: 1px solid var(--border-default);
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.industry-cleanroom-card:hover .ind-app-img-wrap {
+    border-color: var(--card-accent, var(--brand-blue));
+}
+
+.ind-app-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.industry-cleanroom-card:hover .ind-app-img {
+    transform: scale(1.06);
+}
+
+.industry-cleanroom-card h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-headline);
+    margin: 0;
+    padding: 0 0.85rem;
+    line-height: 1.35;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.industry-cleanroom-card:hover h3 {
+    color: #0f172a;
+}
+
+/* Distinct Modern Color Accents for each Industry Card */
+/* 1. Pharmaceutical Industry - Industrial Emerald Primary (#00632e) */
+.industry-cleanroom-card:nth-child(1) {
+    --card-accent: #00632e;
+    --card-accent-ring: #86d7a7;
+    --card-accent-bg: rgba(0, 99, 46, 0.06);
+    --card-accent-glow: rgba(0, 99, 46, 0.24);
+}
+
+/* 2. Chemical Research Laboratory - Modern Amber / Warm Gold */
+.industry-cleanroom-card:nth-child(2) {
+    --card-accent: #D97706;
+    --card-accent-ring: #FBBF24;
+    --card-accent-bg: rgba(217, 119, 6, 0.06);
+    --card-accent-glow: rgba(217, 119, 6, 0.24);
+}
+
+/* 3. Electronic Industry - Modern Electric Indigo / Violet */
+.industry-cleanroom-card:nth-child(3) {
+    --card-accent: #6366F1;
+    --card-accent-ring: #A5B4FC;
+    --card-accent-bg: rgba(99, 102, 241, 0.06);
+    --card-accent-glow: rgba(99, 102, 241, 0.24);
+}
+
+/* 4. Semi-Conductor Production - High-Tech Emerald Accent */
+.industry-cleanroom-card:nth-child(4) {
+    --card-accent: #0a8f46;
+    --card-accent-ring: #6ee7b7;
+    --card-accent-bg: rgba(10, 143, 70, 0.06);
+    --card-accent-glow: rgba(10, 143, 70, 0.24);
+}
+
+/* 5. Food Processing Industry - Cleanroom Violet */
+.industry-cleanroom-card:nth-child(5) {
+    --card-accent: #7C3AED;
+    --card-accent-ring: #A78BFA;
+    --card-accent-bg: rgba(124, 58, 237, 0.06);
+    --card-accent-glow: rgba(124, 58, 237, 0.24);
+}
+
+/* 6. Hospital Segments - Clinical Crimson / Rose */
+.industry-cleanroom-card:nth-child(6) {
+    --card-accent: #E11D48;
+    --card-accent-ring: #FB7185;
+    --card-accent-bg: rgba(225, 29, 72, 0.06);
+    --card-accent-glow: rgba(225, 29, 72, 0.24);
+}
+
+/* 7. Aeronautical - Deep Aerospace Forest */
+.industry-cleanroom-card:nth-child(7) {
+    --card-accent: #004d24;
+    --card-accent-ring: #92dbae;
+    --card-accent-bg: rgba(0, 77, 36, 0.06);
+    --card-accent-glow: rgba(0, 77, 36, 0.24);
+}
+
+/* 8. Energy Power Sector - Dynamic Flame Orange */
+.industry-cleanroom-card:nth-child(8) {
+    --card-accent: #EA580C;
+    --card-accent-ring: #FB923C;
+    --card-accent-bg: rgba(234, 88, 12, 0.06);
+    --card-accent-glow: rgba(234, 88, 12, 0.24);
+}
+
+/* 9. Marine & Ship - Ocean Deep Marine Emerald */
+.industry-cleanroom-card:nth-child(9) {
+    --card-accent: #007a39;
+    --card-accent-ring: #86d7a7;
+    --card-accent-bg: rgba(0, 122, 57, 0.06);
+    --card-accent-glow: rgba(0, 122, 57, 0.24);
+}
+
+/* Responsive Card Widths & Scaled Visuals */
+@media (max-width: 1199px) {
+    .industries-cleanroom-track .industry-cleanroom-card {
+        flex: 0 0 calc((100% - (3 * 16px)) / 3.4);
+    }
+}
+
+@media (max-width: 991px) {
+    .industries-cleanroom-track .industry-cleanroom-card {
+        flex: 0 0 calc((100% - (2 * 14px)) / 2.5);
+        padding: 0 0 1.15rem 0;
+    }
+    .ind-app-img-wrap {
+        width: 100%;
+        height: 140px;
+        margin-bottom: 0.8rem;
+    }
+    .industry-cleanroom-card h3 {
+        font-size: 0.92rem;
+    }
+    .industries-header-flex {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .industries-cleanroom-track .industry-cleanroom-card {
+        flex: 0 0 calc((100% - 12px) / 2.25);
+        padding: 0 0 1rem 0;
+    }
+    .ind-app-img-wrap {
+        width: 100%;
+        height: 125px;
+        margin-bottom: 0.75rem;
+    }
+    .industry-cleanroom-card h3 {
+        font-size: 0.88rem;
+        padding: 0 0.5rem;
+    }
+    .industries-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+    }
+    .industries-carousel-nav {
+        align-self: flex-end;
+        margin-top: -0.25rem;
+    }
+    .carousel-nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .industries-cleanroom-track .industry-cleanroom-card {
+        flex: 0 0 calc((100% - 10px) / 2.15);
+    }
+    .ind-app-img-wrap {
+        width: 100%;
+        height: 110px;
+    }
+    .industry-cleanroom-card h3 {
+        font-size: 0.82rem;
+    }
+}
+
+/* Pagination Dots */
+.industries-carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 0.65rem;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #CBD5E1;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.carousel-dot:hover {
+    background: #94A3B8;
+}
+
+.carousel-dot.active {
+    width: 24px;
+    background: var(--brand-blue);
+    border-radius: 4px;
+}
+
+.industry-cleanroom-standards {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand-blue-text);
+    background: var(--brand-blue-light);
+    border: 1px solid var(--brand-blue-border);
+    padding: 0.22rem 0.5rem;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    align-self: flex-start;
+}
+

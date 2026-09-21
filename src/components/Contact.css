@@ -1,0 +1,270 @@
+/* ==========================================================================
+   MAP FILTERS INDIA PVT. LTD. — Contact Section Stylesheet
+   Find Us Map Integration, Branch Locations, and Engineering Contact
+   ========================================================================== */
+
+.contact-section {
+    padding: 3.5rem 0 4rem;
+    background: #F8FAFC;
+    position: relative;
+    border-top: 1px solid #E2E8F0;
+}
+
+.contact-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Contact Section Header */
+.contact-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.contact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00632e;
+    background: rgba(0, 99, 46, 0.08);
+    border: 1px solid rgba(0, 99, 46, 0.25);
+    padding: 0.35rem 0.95rem;
+    border-radius: 9999px;
+    margin-bottom: 0.85rem;
+}
+
+.contact-title {
+    font-size: clamp(2rem, 3.5vw, 2.65rem);
+    font-weight: 800;
+    color: #0B1B3D;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 0.85rem;
+}
+
+.contact-subtitle {
+    font-size: 1.05rem;
+    color: #4B5563;
+    line-height: 1.6;
+}
+
+/* Map Embedded Area */
+.contact-map-wrapper {
+    margin-bottom: 3rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E2E8F0;
+    background: #FFFFFF;
+}
+
+/* Branches and Support Hub Cards */
+.contact-offices-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 2rem 2rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+    margin-bottom: 2rem;
+}
+
+.contact-offices-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0B1B3D;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-offices-title .title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #e8f7ee;
+    color: #00632e;
+    font-size: 16px;
+}
+
+.contact-branches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-branch-item {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 1.25rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: all 0.25s ease;
+}
+
+.contact-branch-item:hover {
+    border-color: #00632e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 99, 46, 0.1);
+}
+
+.contact-branch-badge {
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(0, 99, 46, 0.1);
+    color: #00632e;
+}
+
+.contact-branch-badge.hq {
+    background: rgba(211, 18, 26, 0.1);
+    color: #D3121A;
+}
+
+.contact-branch-heading {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0B1B3D;
+    margin: 0;
+}
+
+.contact-branch-address {
+    font-size: 13px;
+    color: #4B5563;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Quick Channels Row */
+.contact-channels-bar {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 1.25rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid #E2E8F0;
+    align-items: center;
+}
+
+.contact-channel-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+}
+
+.contact-channel-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    background: #e8f7ee;
+    color: #00632e;
+}
+
+.contact-channel-icon.phone-icon {
+    background: #e8f7ee;
+    color: #00632e;
+}
+
+.contact-channel-icon.email-icon {
+    background: #fef2f2;
+    color: #D3121A;
+}
+
+.contact-channel-details h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.25rem 0;
+}
+
+.contact-channel-details a {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0B1B3D;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-channel-details a:hover {
+    color: #00632e;
+}
+
+.contact-emails-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.65rem;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.contact-cta-action-btn {
+    width: 100%;
+    background: #D3121A;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 0.85rem 1.25rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(211, 18, 26, 0.3);
+    transition: all 0.2s ease;
+}
+
+.contact-cta-action-btn:hover {
+    background: #b30f16;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(211, 18, 26, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-branches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-channels-bar {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 2.5rem 0 3rem;
+    }
+
+    .contact-offices-card {
+        padding: 1.5rem 1rem;
+    }
+}
+

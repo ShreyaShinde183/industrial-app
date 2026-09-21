@@ -64,3 +64,4 @@ export const LocationCard = ({ location, onViewDetails }) => {
 };
 
 export default LocationCard;
+

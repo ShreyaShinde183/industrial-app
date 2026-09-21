@@ -4,7 +4,7 @@
    Colors: Industrial Emerald (#00632e), Cleanroom Navy (#0B1B3D), Crimson Red (#D3121A)
    ========================================================================== */
 
-@import "src/components/MapFilters.css";
+@import "src/MapFilters/MapFilters.css";
 
 /* --------------------------------------------------------------------------
    1. Design System Tokens

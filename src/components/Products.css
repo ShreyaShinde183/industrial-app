@@ -1,0 +1,196 @@
+/* --------------------------------------------------------------------------
+   9. Cleanroom Products & Services Grid (Matching Reference)
+   -------------------------------------------------------------------------- */
+.cleanroom-products-section {
+    padding: 2.5rem 0 2.75rem;
+    background: #ffffff;
+}
+
+.cleanroom-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.15rem;
+    margin-top: 1.25rem;
+    align-items: stretch;
+}
+
+.cleanroom-card {
+    background: #ffffff;
+    border: 1px solid var(--border-default);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    position: relative;
+}
+
+.cleanroom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 99, 46, 0.15);
+    border-color: #00632e;
+}
+
+.cleanroom-card-featured {
+    border: 1.5px solid #00632e;
+    box-shadow: 0 4px 20px rgba(0, 99, 46, 0.12);
+}
+
+.cleanroom-card-media {
+    height: 180px;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.cleanroom-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+    transition: transform 0.35s ease;
+}
+
+.cleanroom-card:hover .cleanroom-card-media img {
+    transform: scale(1.05);
+}
+
+.cleanroom-card-body {
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cleanroom-card-icon-bubble {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.65rem;
+}
+
+.cleanroom-card-icon-bubble.green { background: #dcfce7; color: #15803d; }
+.cleanroom-card-icon-bubble.blue { background: #e0f2fe; color: #0284c7; }
+.cleanroom-card-icon-bubble.purple { background: #ede9fe; color: #7c3aed; }
+.cleanroom-card-icon-bubble.orange { background: #fef3c7; color: #d97706; }
+
+.cleanroom-card-body h3 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--text-headline);
+    margin-bottom: 0.35rem;
+    line-height: 1.25;
+}
+
+.cleanroom-card-body .card-desc-summary {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+    flex-grow: 1;
+}
+
+.cleanroom-card-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 0.45rem;
+}
+
+.cleanroom-card-tags span {
+    font-size: 9.5px;
+    font-weight: 600;
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    border: 1px solid var(--border-default);
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm);
+}
+
+/* Side-by-side action buttons */
+.cleanroom-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--border-default);
+}
+
+.btn-card-desc {
+    flex: 1;
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    color: #00632e;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 0.42rem 0.45rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.btn-card-desc:hover {
+    background: #dcfce7;
+    border-color: #00632e;
+    color: #004d24;
+}
+
+.btn-card-curious {
+    flex: 1;
+    background: #00632e;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 0.42rem 0.45rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-card-curious:hover {
+    background: #004d24;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 99, 46, 0.3);
+}
+
+.cleanroom-card-featured .btn-card-curious {
+    background: linear-gradient(135deg, #00632e 0%, #004d24 100%);
+    box-shadow: 0 4px 12px rgba(0, 99, 46, 0.35);
+}
+
+.btn-card-details {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-blue);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.btn-card-details:hover {
+    transform: translateX(3px);
+}
+
