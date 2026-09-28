@@ -11,11 +11,14 @@ import LocationCard from './LocationCard';
 import './MapFilters.css';
 
 /**
- * MAP FILTERS MapFilters Component
- * Two-column desktop / single-column mobile layout
- * Real-time filter logic, Leaflet map integration, and custom markers
+ * MAP FILTERS Google Maps Component
+ * - Replaces Leaflet with Google Maps JavaScript API
+ * - Dynamic script loader (with .env or prop API key support)
+ * - Multi-criteria filter engine (Search, Country, State, City, Industry, Product, Cert)
+ * - Custom brand markers (Crimson for HQ, Emerald for Regional Hubs)
+ * - Dynamic bounds framing & interactive InfoWindows
  */
-export const MapFilters = ({ onLocationSelect }) => {
+export const MapFilters = ({ onLocationSelect, apiKey }) => {
     // Filter states
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCountry, setSelectedCountry] = useState('');
@@ -36,13 +39,16 @@ export const MapFilters = ({ onLocationSelect }) => {
         certification: ''
     });
 
-    // Selected location card preview
+    // Selected location preview
     const [activeLocation, setActiveLocation] = useState(null);
+    const [mapError, setMapError] = useState(null);
+    const [isMapReady, setIsMapReady] = useState(false);
 
-    // Map container & Leaflet instance refs
+    // Map container & Google Maps refs
     const mapRef = useRef(null);
     const mapInstance = useRef(null);
-    const markersLayerRef = useRef(null);
+    const markersRef = useRef([]);
+    const infoWindowRef = useRef(null);
 
     // Dynamic states based on selected country
     const availableStates = useMemo(() => {
@@ -118,7 +124,6 @@ export const MapFilters = ({ onLocationSelect }) => {
     // Filtered locations computation
     const filteredLocations = useMemo(() => {
         return LOCATIONS.filter((loc) => {
-            // Search Query: checks name, country, state, city, industry
             if (appliedFilters.search) {
                 const term = appliedFilters.search;
                 const matchName = loc.name.toLowerCase().includes(term);
@@ -131,158 +136,199 @@ export const MapFilters = ({ onLocationSelect }) => {
                 }
             }
 
-            // Country Filter
-            if (appliedFilters.country && loc.country !== appliedFilters.country) {
-                return false;
-            }
-
-            // State Filter
-            if (appliedFilters.state && loc.state !== appliedFilters.state) {
-                return false;
-            }
-
-            // City Filter
-            if (appliedFilters.city && loc.city !== appliedFilters.city) {
-                return false;
-            }
-
-            // Industry Filter
-            if (appliedFilters.industry && loc.industry !== appliedFilters.industry) {
-                return false;
-            }
-
-            // Product Category Filter
-            if (appliedFilters.product && loc.productCategory !== appliedFilters.product) {
-                return false;
-            }
-
-            // Certification Filter
-            if (appliedFilters.certification && loc.certification !== appliedFilters.certification) {
-                return false;
-            }
+            if (appliedFilters.country && loc.country !== appliedFilters.country) return false;
+            if (appliedFilters.state && loc.state !== appliedFilters.state) return false;
+            if (appliedFilters.city && loc.city !== appliedFilters.city) return false;
+            if (appliedFilters.industry && loc.industry !== appliedFilters.industry) return false;
+            if (appliedFilters.product && loc.productCategory !== appliedFilters.product) return false;
+            if (appliedFilters.certification && loc.certification !== appliedFilters.certification) return false;
 
             return true;
         });
     }, [appliedFilters]);
 
-    // Initialize Leaflet Map
+    // 1. Load Google Maps JavaScript API
     useEffect(() => {
-        if (!mapRef.current) return;
-        if (typeof window === 'undefined') return;
+        let isMounted = true;
 
-        const L = window.L;
-        if (!L) {
-            console.warn('Leaflet (window.L) is not loaded yet.');
-            return;
-        }
+        const loadGoogleMapsScript = () => {
+            if (window.google && window.google.maps) {
+                if (isMounted) setIsMapReady(true);
+                return;
+            }
+
+            const existingScript = document.getElementById('google-maps-api-script');
+            if (existingScript) {
+                existingScript.addEventListener('load', () => {
+                    if (isMounted) setIsMapReady(true);
+                });
+                existingScript.addEventListener('error', () => {
+                    if (isMounted) setMapError('Failed to load Google Maps script.');
+                });
+                return;
+            }
+
+            const key = apiKey || (typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_MAPS_API_KEY) || '';
+            const script = document.createElement('script');
+            script.id = 'google-maps-api-script';
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
+            script.async = true;
+            script.defer = true;
+            script.onload = () => {
+                if (isMounted) setIsMapReady(true);
+            };
+            script.onerror = () => {
+                if (isMounted) setMapError('Google Maps failed to load. Please verify your connection or API key.');
+            };
+
+            document.head.appendChild(script);
+        };
+
+        loadGoogleMapsScript();
+
+        return () => {
+            isMounted = false;
+        };
+    }, [apiKey]);
+
+    // 2. Initialize Google Map Instance
+    useEffect(() => {
+        if (!isMapReady || !mapRef.current) return;
+        if (!window.google || !window.google.maps) return;
 
         if (!mapInstance.current) {
-            // Center around Middle East & India initially
-            const map = L.map(mapRef.current, {
-                center: [23.5, 60.0],
-                zoom: 4,
-                scrollWheelZoom: false
+            // Clean Industrial Map Palette
+            const industrialMapStyles = [
+                {
+                    featureType: 'poi',
+                    elementType: 'labels',
+                    stylers: [{ visibility: 'off' }]
+                },
+                {
+                    featureType: 'transit',
+                    elementType: 'labels',
+                    stylers: [{ visibility: 'simplified' }]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{ color: '#c9e8fd' }]
+                }
+            ];
+
+            const map = new window.google.maps.Map(mapRef.current, {
+                center: { lat: 21.5, lng: 78.5 }, // Central India
+                zoom: 5,
+                scrollwheel: false,
+                mapTypeControl: false,
+                streetViewControl: false,
+                fullscreenControl: true,
+                styles: industrialMapStyles
             });
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | MAP FILTERS INDIA PVT. LTD.',
-                maxZoom: 18
-            }).addTo(map);
-
-            markersLayerRef.current = L.featureGroup().addTo(map);
+            infoWindowRef.current = new window.google.maps.InfoWindow();
             mapInstance.current = map;
         }
-    }, []);
+    }, [isMapReady]);
 
-    // Update markers when filteredLocations change
+    // 3. Render Custom Markers and Update Bounds
     useEffect(() => {
-        const L = window.L;
-        const map = mapInstance.current;
-        const layer = markersLayerRef.current;
-        if (!L || !map || !layer) return;
+        if (!mapInstance.current || !window.google || !window.google.maps) return;
 
-        layer.clearLayers();
+        const map = mapInstance.current;
+        const google = window.google;
+
+        // Clear existing markers
+        markersRef.current.forEach((m) => m.setMap(null));
+        markersRef.current = [];
 
         if (filteredLocations.length === 0) return;
 
+        const bounds = new google.maps.LatLngBounds();
+
         filteredLocations.forEach((loc) => {
-            // Custom MAP FILTERS marker icon
-            const customIcon = L.divIcon({
-                className: 'custom-leaflet-marker',
-                html: `<div class="mapfil-map-pin ${loc.isHeadquarters ? 'pin-hq' : ''}" title="${loc.name}"></div>`,
-                iconSize: [32, 32],
-                iconAnchor: [16, 32],
-                popupAnchor: [0, -32]
+            const position = { lat: loc.lat, lng: loc.lng };
+            bounds.extend(position);
+
+            const isHQ = loc.isHeadquarters;
+            const pinColor = isHQ ? '#D3121A' : '#00632e';
+
+            // High-definition Custom SVG Pin Icon
+            const markerIcon = {
+                path: 'M 12,2 C 7.58,2 4,5.58 4,10 c 0,5.25 8,12 8,12 0,0 8,-6.75 8,-12 0,-4.42 -3.58,-8 -8,-8 z',
+                fillColor: pinColor,
+                fillOpacity: 1,
+                strokeWeight: 1.8,
+                strokeColor: '#FFFFFF',
+                scale: 1.6,
+                anchor: new google.maps.Point(12, 22),
+                labelOrigin: new google.maps.Point(12, 9)
+            };
+
+            const marker = new google.maps.Marker({
+                position,
+                map,
+                title: loc.name,
+                animation: google.maps.Animation.DROP,
+                icon: markerIcon
             });
 
-            const marker = L.marker([loc.lat, loc.lng], { icon: customIcon });
+            // Rich InfoWindow content matching MAP FILTERS brand style
+            const infoContent = `
+                <div class="mapfil-location-card" style="padding: 12px; max-width: 280px; font-family: 'Plus Jakarta Sans', sans-serif;">
+                    <div class="loc-card-header" style="display:flex; gap:6px; margin-bottom: 6px;">
+                        <span class="loc-badge-type" style="font-size:10px; font-weight:700; background:#f1f5f9; padding:2px 6px; border-radius:4px; color:#475569;">${loc.type}</span>
+                        ${isHQ ? '<span class="loc-badge-hq" style="font-size:10px; font-weight:800; background:#fef2f2; color:#D3121A; padding:2px 6px; border-radius:4px;">Headquarters</span>' : ''}
+                    </div>
+                    <h4 class="loc-name" style="font-size:14px; font-weight:800; color:#0B1B3D; margin:0 0 4px 0;">${loc.name}</h4>
+                    <p class="loc-city-country" style="font-size:12px; font-weight:600; color:#00632e; margin:0 0 8px 0;">${loc.city}, ${loc.country}</p>
+                    
+                    <div style="font-size:11.5px; border-top:1px solid #f1f5f9; border-bottom:1px solid #f1f5f9; padding:6px 0; margin-bottom:8px; display:flex; flex-direction:column; gap:3px;">
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:#64748B;">Industry:</span>
+                            <span style="font-weight:700; color:#0B1B3D;">${loc.industry}</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:#64748B;">Product:</span>
+                            <span style="font-weight:700; color:#0B1B3D;">${loc.productCategory || 'Cleanroom'}</span>
+                        </div>
+                    </div>
 
-            // Popup with MAP FILTERS location card markup
-            const popupHtml = `
-                <div class="mapfil-location-card">
-                    <div class="loc-card-header">
-                        <span class="loc-badge-type">${loc.type}</span>
-                        ${loc.isHeadquarters ? '<span class="loc-badge-hq">Headquarters</span>' : ''}
-                    </div>
-                    <h4 class="loc-name">${loc.name}</h4>
-                    <p class="loc-city-country">${loc.city}, ${loc.country}</p>
-                    <div class="loc-details-grid">
-                        <div class="loc-detail-row">
-                            <span class="loc-label">Industry:</span>
-                            <span class="loc-value">${loc.industry}</span>
-                        </div>
-                        <div class="loc-detail-row">
-                            <span class="loc-label">Type:</span>
-                            <span class="loc-value">${loc.type}</span>
-                        </div>
-                    </div>
-                    <p class="loc-address">📍 ${loc.address}</p>
-                    <div class="loc-card-footer">
-                        <button class="btn-view-details" onclick="window.mapfilSelectLocation && window.mapfilSelectLocation('${loc.id}')">
-                            View Details
+                    <p class="loc-address" style="font-size:11px; color:#64748B; margin:0 0 10px 0; line-height:1.4;">📍 ${loc.address}</p>
+                    
+                    <div style="display:flex; gap:6px;">
+                        <button 
+                            type="button"
+                            onclick="window.openQuoteModal && window.openQuoteModal('Google Maps Hub: ${loc.name}')"
+                            style="flex:1; background:#D3121A; color:#FFFFFF; border:none; padding:6px 10px; border-radius:6px; font-size:11.5px; font-weight:700; cursor:pointer;"
+                        >
+                            Request Quote
                         </button>
-                        <a href="tel:${loc.phone}" class="btn-loc-call" title="Call">📞</a>
+                        <a href="tel:${loc.phone}" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; background:#f1f5f9; border-radius:6px; text-decoration:none; font-size:13px;" title="Call">📞</a>
                     </div>
                 </div>
             `;
 
-            marker.bindPopup(popupHtml);
-
-            marker.on('click', () => {
+            marker.addListener('click', () => {
+                if (infoWindowRef.current) {
+                    infoWindowRef.current.setContent(infoContent);
+                    infoWindowRef.current.open(map, marker);
+                }
                 setActiveLocation(loc);
                 if (onLocationSelect) onLocationSelect(loc);
             });
 
-            layer.addLayer(marker);
+            markersRef.current.push(marker);
         });
 
-        // Fit map view to visible locations with padding
-        try {
-            const bounds = layer.getBounds();
-            if (bounds.isValid()) {
-                map.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
-            }
-        } catch (err) {
-            console.error(err);
+        // Fit bounds smoothly with viewport padding
+        if (filteredLocations.length > 1) {
+            map.fitBounds(bounds);
+        } else if (filteredLocations.length === 1) {
+            map.setCenter({ lat: filteredLocations[0].lat, lng: filteredLocations[0].lng });
+            map.setZoom(12);
         }
-    }, [filteredLocations, onLocationSelect]);
-
-    // Global hook for popup click handler
-    useEffect(() => {
-        window.mapfilSelectLocation = (locId) => {
-            const found = LOCATIONS.find((l) => l.id === locId);
-            if (found) {
-                setActiveLocation(found);
-                if (typeof window.openQuoteModal === 'function') {
-                    window.openQuoteModal(`Cleanroom Hub: ${found.name}`);
-                }
-            }
-        };
-
-        return () => {
-            delete window.mapfilSelectLocation;
-            };
-    }, []);
+    }, [filteredLocations, isMapReady, onLocationSelect]);
 
     return (
         <section className="mapfil-map-filters-section" id="find-us">
@@ -292,7 +338,7 @@ export const MapFilters = ({ onLocationSelect }) => {
                 <div className="map-section-header">
                     <div className="map-header-accent">
                         <span className="accent-dot-red" aria-hidden="true"></span>
-                        <span>PAN-INDIA & REGIONAL CLEANROOM NETWORK</span>
+                        <span>PAN-INDIA &amp; REGIONAL CLEANROOM NETWORK</span>
                         <span className="accent-dot-blue" aria-hidden="true"></span>
                     </div>
                     <h2 className="map-section-title">Find MAP FILTERS Near You</h2>
@@ -420,24 +466,37 @@ export const MapFilters = ({ onLocationSelect }) => {
                         </form>
                     </aside>
 
-                    {/* Map Display (Right) */}
+                    {/* Google Map Display (Right) */}
                     <div className="map-display-card">
                         <div className="map-toolbar">
                             <div className="map-status-info">
                                 <span className="map-status-dot"></span>
-                                <span>Interactive Network Map</span>
+                                <span>Google Maps Network</span>
                             </div>
                             <span>Click any pin to inspect location card</span>
                         </div>
 
-                        {/* Leaflet Map Mount Point */}
+                        {/* Google Map Canvas */}
                         <div
                             ref={mapRef}
                             className="map-canvas-container"
-                            aria-label="Interactive Leaflet Map showing MAP FILTERS cleanroom locations and project network"
-                        ></div>
+                            style={{ minHeight: '380px', width: '100%', position: 'relative' }}
+                            aria-label="Interactive Google Map showing MAP FILTERS cleanroom locations"
+                        >
+                            {!isMapReady && !mapError && (
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#64748B', fontSize: '13px' }}>
+                                    Loading Google Maps...
+                                </div>
+                            )}
+                            {mapError && (
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '1rem', color: '#D3121A', fontSize: '13px', textAlign: 'center' }}>
+                                    <p style={{ margin: '0 0 6px 0', fontWeight: 'bold' }}>{mapError}</p>
+                                    <p style={{ margin: 0, color: '#64748B', fontSize: '12px' }}>Check your Google Maps API key in index.html or .env file.</p>
+                                </div>
+                            )}
+                        </div>
 
-                        {/* Optional floating location card preview on mobile/click */}
+                        {/* Optional floating location card preview on click */}
                         {activeLocation && (
                             <div className="active-location-overlay">
                                 <LocationCard
