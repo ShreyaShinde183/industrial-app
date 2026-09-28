@@ -4,20 +4,6 @@ import './Footer.css';
 export const Footer = ({ onOpenEnquiry }) => {
     return (
         <footer className="site-footer">
-            {/* Teal Pre-Footer Bar */}
-            <div className="footer-cta-bar">
-                <div className="section-wrapper footer-cta-content">
-                    <h3 className="footer-cta-heading">Reach out for information now</h3>
-                    <button
-                        type="button"
-                        className="footer-cta-enquiry-btn"
-                        onClick={() => onOpenEnquiry && onOpenEnquiry('Pre-Footer Banner', 'General Inquiry')}
-                    >
-                        <span>Inquiry</span>
-                        <span aria-hidden="true">→</span>
-                    </button>
-                </div>
-            </div>
 
             {/* Main Footer Body */}
             <div className="footer-main-section">
