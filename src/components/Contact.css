@@ -64,6 +64,11 @@
     background: #FFFFFF;
 }
 
+.contact-map-wrapper .mapfil-map-filters-section {
+    padding: 1.75rem 0 2rem;
+    background: transparent;
+}
+
 /* Branches and Support Hub Cards */
 .contact-offices-card {
     background: #FFFFFF;

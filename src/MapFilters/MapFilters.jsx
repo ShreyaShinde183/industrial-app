@@ -18,7 +18,7 @@ import './MapFilters.css';
  * - Custom brand markers (Crimson for HQ, Emerald for Regional Hubs)
  * - Dynamic bounds framing & interactive InfoWindows
  */
-export const MapFilters = ({ onLocationSelect, apiKey }) => {
+export const MapFilters = ({ onLocationSelect, apiKey, hideHeader = false }) => {
     // Filter states
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCountry, setSelectedCountry] = useState('');
@@ -335,17 +335,19 @@ export const MapFilters = ({ onLocationSelect, apiKey }) => {
             <div className="map-filters-container">
 
                 {/* Section Header */}
-                <div className="map-section-header">
-                    <div className="map-header-accent">
-                        <span className="accent-dot-red" aria-hidden="true"></span>
-                        <span>PAN-INDIA &amp; REGIONAL CLEANROOM NETWORK</span>
-                        <span className="accent-dot-blue" aria-hidden="true"></span>
+                {!hideHeader && (
+                    <div className="map-section-header">
+                        <div className="map-header-accent">
+                            <span className="accent-dot-red" aria-hidden="true"></span>
+                            <span>PAN-INDIA &amp; REGIONAL CLEANROOM NETWORK</span>
+                            <span className="accent-dot-blue" aria-hidden="true"></span>
+                        </div>
+                        <h2 className="map-section-title">Find MAP FILTERS Near You</h2>
+                        <p className="map-section-subtitle">
+                            Connect with our cleanroom design, HVAC installation, and maintenance hubs across India and allied markets.
+                        </p>
                     </div>
-                    <h2 className="map-section-title">Find MAP FILTERS Near You</h2>
-                    <p className="map-section-subtitle">
-                        Connect with our cleanroom design, HVAC installation, and maintenance hubs across India and allied markets.
-                    </p>
-                </div>
+                )}
 
                 {/* Desktop Two-Column / Mobile Stacked Layout */}
                 <div className="map-filters-grid">

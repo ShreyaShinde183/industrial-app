@@ -37,7 +37,7 @@ export const Contact = ({ onOpenEnquiry, onOpenProject }) => {
 
                 {/* 2. Interactive Google Maps & Filters Module */}
                 <div className="contact-map-wrapper">
-                    <MapFilters />
+                    <MapFilters hideHeader={true} />
                 </div>
 
                 {/* 3. Corporate Offices & Branches Card */}
