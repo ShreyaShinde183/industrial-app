@@ -12,7 +12,7 @@ import './MapFilters.css';
 
 /**
  * MAP FILTERS Google Maps Component
- * - Replaces Leaflet with Google Maps JavaScript API
+ * - Google Maps JavaScript API integration
  * - Dynamic script loader (with .env or prop API key support)
  * - Multi-criteria filter engine (Search, Country, State, City, Industry, Product, Cert)
  * - Custom brand markers (Crimson for HQ, Emerald for Regional Hubs)

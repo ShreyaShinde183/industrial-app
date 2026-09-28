@@ -35,7 +35,7 @@ export const Contact = ({ onOpenEnquiry, onOpenProject }) => {
                     </p>
                 </div>
 
-                {/* 2. Interactive Leaflet Map & Filters Module */}
+                {/* 2. Interactive Google Maps & Filters Module */}
                 <div className="contact-map-wrapper">
                     <MapFilters />
                 </div>

@@ -40,7 +40,7 @@ export function App() {
         setIsProjectOpen(false);
     };
 
-    // Global bridge so Leaflet popups or external buttons can trigger modals seamlessly
+    // Global bridge so Google Maps InfoWindows or external buttons can trigger modals seamlessly
     useEffect(() => {
         window.openQuoteModal = (source, product) => {
             handleOpenEnquiry(source || "I'm Curious", product || '');

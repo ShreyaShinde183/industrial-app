@@ -282,10 +282,16 @@ function initApp() {
        ---------------------------------------------------------------------- */
 
     /* ----------------------------------------------------------------------
-       4. Interactive Map Filters Controller (Leaflet + Filtering Logic)
+       4. Interactive Map Filters Controller (Google Maps + Filtering Logic)
        ---------------------------------------------------------------------- */
     const mapContainer = document.getElementById('mapfil-map');
-    if (mapContainer && typeof window.L !== 'undefined') {
+    if (mapContainer) {
+        let isMapInitialized = false;
+
+        function initGoogleMapController() {
+            if (isMapInitialized) return;
+            if (!window.google || !window.google.maps) return;
+            isMapInitialized = true;
 
         // Location Dataset - 11 Cleanroom & HVAC Hubs
         const LOCATION_DATA = [
@@ -518,24 +524,38 @@ function initApp() {
             }
         ];
 
-        // Initialize Leaflet Map centered on India/Middle East corridor
-        const targetElementId = mapContainer.id;
-        const map = L.map(targetElementId, {
-            center: [23.0225, 72.5714],
+        // Clean Industrial Map Palette
+        const industrialMapStyles = [
+            {
+                featureType: 'poi',
+                elementType: 'labels',
+                stylers: [{ visibility: 'off' }]
+            },
+            {
+                featureType: 'transit',
+                elementType: 'labels',
+                stylers: [{ visibility: 'simplified' }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{ color: '#c9e8fd' }]
+            }
+        ];
+
+        // Initialize Google Map centered on India & Middle East region
+        const map = new google.maps.Map(mapContainer, {
+            center: { lat: 21.5, lng: 78.5 },
             zoom: 5,
-            scrollWheelZoom: false,
-            attributionControl: true
+            scrollwheel: false,
+            mapTypeControl: false,
+            streetViewControl: false,
+            fullscreenControl: true,
+            styles: industrialMapStyles
         });
 
-        // Professional Clean Tile Layer
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a> | MAP FILTERS INDIA PVT. LTD.',
-            subdomains: 'abcd',
-            maxZoom: 19
-        }).addTo(map);
-
-        // Marker Cluster Layer or FeatureGroup
-        const markersLayer = L.featureGroup().addTo(map);
+        const infoWindow = new google.maps.InfoWindow();
+        let markers = [];
 
         // Filter UI Elements
         const searchInput = document.getElementById('mapSearch');
@@ -646,7 +666,8 @@ function initApp() {
 
         // Render markers for a given list of locations
         function renderMarkers(locations) {
-            markersLayer.clearLayers();
+            markers.forEach(m => m.setMap(null));
+            markers = [];
 
             if (resultsBadge) {
                 resultsBadge.textContent = `${locations.length} Hubs Found`;
@@ -654,66 +675,83 @@ function initApp() {
 
             if (locations.length === 0) return;
 
-            locations.forEach(loc => {
-                const isHQ = loc.isHeadquarters;
-                const iconClass = isHQ ? 'mapfil-map-pin pin-hq' : 'mapfil-map-pin';
+            const bounds = new google.maps.LatLngBounds();
 
-                const customIcon = L.divIcon({
-                    className: 'custom-leaflet-marker',
-                    html: `<div class="${iconClass}" title="${loc.name}"></div>`,
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 32],
-                    popupAnchor: [0, -32]
+            locations.forEach(loc => {
+                const position = { lat: loc.lat, lng: loc.lng };
+                bounds.extend(position);
+
+                const isHQ = loc.isHeadquarters;
+                const pinColor = isHQ ? '#D3121A' : '#00632e';
+
+                // High-definition Custom SVG Pin Icon
+                const markerIcon = {
+                    path: 'M 12,2 C 7.58,2 4,5.58 4,10 c 0,5.25 8,12 8,12 0,0 8,-6.75 8,-12 0,-4.42 -3.58,-8 -8,-8 z',
+                    fillColor: pinColor,
+                    fillOpacity: 1,
+                    strokeWeight: 1.8,
+                    strokeColor: '#FFFFFF',
+                    scale: 1.6,
+                    anchor: new google.maps.Point(12, 22),
+                    labelOrigin: new google.maps.Point(12, 9)
+                };
+
+                const marker = new google.maps.Marker({
+                    position,
+                    map,
+                    title: loc.name,
+                    animation: google.maps.Animation.DROP,
+                    icon: markerIcon
                 });
 
-                const marker = L.marker([loc.lat, loc.lng], { icon: customIcon });
-
-                // Location Card popup
+                // Rich InfoWindow content matching MAP FILTERS brand style
                 const popupContent = `
-                    <div class="mapfil-location-card">
-                        <div class="loc-card-header">
-                            <span class="loc-badge-type">${loc.type}</span>
-                            ${isHQ ? '<span class="loc-badge-hq">Headquarters</span>' : ''}
+                    <div class="mapfil-location-card" style="padding: 12px; max-width: 280px; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        <div class="loc-card-header" style="display:flex; gap:6px; margin-bottom: 6px;">
+                            <span class="loc-badge-type" style="font-size:10px; font-weight:700; background:#f1f5f9; padding:2px 6px; border-radius:4px; color:#475569;">${loc.type}</span>
+                            ${isHQ ? '<span class="loc-badge-hq" style="font-size:10px; font-weight:800; background:#fef2f2; color:#D3121A; padding:2px 6px; border-radius:4px;">Headquarters</span>' : ''}
                         </div>
-                        <h4 class="loc-name">${loc.name}</h4>
-                        <p class="loc-city-country">${loc.city}, ${loc.country}</p>
-                        <div class="loc-details-grid">
-                            <div class="loc-detail-row">
-                                <span class="loc-label">Industry:</span>
-                                <span class="loc-value">${loc.industry}</span>
+                        <h4 class="loc-name" style="font-size:14px; font-weight:800; color:#0B1B3D; margin:0 0 4px 0;">${loc.name}</h4>
+                        <p class="loc-city-country" style="font-size:12px; font-weight:600; color:#00632e; margin:0 0 8px 0;">${loc.city}, ${loc.country}</p>
+                        <div class="loc-details-grid" style="font-size:11.5px; border-top:1px solid #f1f5f9; border-bottom:1px solid #f1f5f9; padding:6px 0; margin-bottom:8px; display:flex; flex-direction:column; gap:3px;">
+                            <div class="loc-detail-row" style="display:flex; justify-content:space-between;">
+                                <span class="loc-label" style="color:#64748B;">Industry:</span>
+                                <span class="loc-value" style="font-weight:700; color:#0B1B3D;">${loc.industry}</span>
                             </div>
-                            <div class="loc-detail-row">
-                                <span class="loc-label">Specialization:</span>
-                                <span class="loc-value">${loc.productCategory}</span>
+                            <div class="loc-detail-row" style="display:flex; justify-content:space-between;">
+                                <span class="loc-label" style="color:#64748B;">Specialization:</span>
+                                <span class="loc-value" style="font-weight:700; color:#0B1B3D;">${loc.productCategory}</span>
                             </div>
                             ${loc.certification ? `
-                            <div class="loc-detail-row">
-                                <span class="loc-label">Standard:</span>
-                                <span class="loc-value tag-cert">${loc.certification}</span>
+                            <div class="loc-detail-row" style="display:flex; justify-content:space-between;">
+                                <span class="loc-label" style="color:#64748B;">Standard:</span>
+                                <span class="loc-value tag-cert" style="font-weight:700; color:#00632e;">${loc.certification}</span>
                             </div>` : ''}
                         </div>
-                        <p class="loc-address">📍 ${loc.address}</p>
-                        <div class="loc-card-footer">
-                            <button class="btn-view-details" onclick="openQuoteModal('Location Hub: ${loc.name}')">
+                        <p class="loc-address" style="font-size:11px; color:#64748B; margin:0 0 10px 0; line-height:1.4;">📍 ${loc.address}</p>
+                        <div class="loc-card-footer" style="display:flex; gap:6px;">
+                            <button class="btn-view-details" style="flex:1; background:#D3121A; color:#FFFFFF; border:none; padding:6px 10px; border-radius:6px; font-size:11.5px; font-weight:700; cursor:pointer;" onclick="openQuoteModal('Location Hub: ${loc.name}')">
                                 Request Facility Audit
                             </button>
-                            <a href="tel:${loc.phone}" class="btn-loc-call" title="Call ${loc.name}">📞</a>
+                            <a href="tel:${loc.phone}" class="btn-loc-call" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; background:#f1f5f9; border-radius:6px; text-decoration:none; font-size:13px;" title="Call ${loc.name}">📞</a>
                         </div>
                     </div>
                 `;
 
-                marker.bindPopup(popupContent);
-                markersLayer.addLayer(marker);
+                marker.addListener('click', () => {
+                    infoWindow.setContent(popupContent);
+                    infoWindow.open(map, marker);
+                });
+
+                markers.push(marker);
             });
 
             // Adjust view to fit markers
-            try {
-                const bounds = markersLayer.getBounds();
-                if (bounds.isValid()) {
-                    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
-                }
-            } catch (err) {
-                console.error(err);
+            if (locations.length > 1) {
+                map.fitBounds(bounds);
+            } else if (locations.length === 1) {
+                map.setCenter({ lat: locations[0].lat, lng: locations[0].lng });
+                map.setZoom(12);
             }
         }
 
@@ -797,27 +835,49 @@ function initApp() {
         // Initial render of all markers
         renderMarkers(LOCATION_DATA);
 
-        // Fix Leaflet tile rendering after font or DOM paint
+        // Refresh Google Maps layout on resize or visibility
         setTimeout(() => {
-            map.invalidateSize();
+            google.maps.event.trigger(map, 'resize');
         }, 300);
 
         window.addEventListener('resize', () => {
-            map.invalidateSize();
+            google.maps.event.trigger(map, 'resize');
         });
 
-        // Invalidate map on scroll into view
+        // Trigger map resize on scroll into view
         if ('IntersectionObserver' in window && mapContainer) {
             const mapObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        map.invalidateSize();
+                        google.maps.event.trigger(map, 'resize');
                     }
                 });
             }, { threshold: 0.1 });
             mapObserver.observe(mapContainer);
         }
     }
+
+    // Trigger Google Maps initialization
+    if (window.google && window.google.maps) {
+        initGoogleMapController();
+    } else {
+        const existingScript = document.getElementById('google-maps-api-script') ||
+                               document.querySelector('script[src*="maps.googleapis.com"]');
+        if (existingScript) {
+            existingScript.addEventListener('load', initGoogleMapController);
+        }
+        let checkAttempts = 0;
+        const checkInterval = setInterval(() => {
+            checkAttempts++;
+            if (window.google && window.google.maps) {
+                clearInterval(checkInterval);
+                initGoogleMapController();
+            } else if (checkAttempts > 60) {
+                clearInterval(checkInterval);
+            }
+        }, 100);
+    }
+}
 
     /* ----------------------------------------------------------------------
        4B. Guaranteed Attachment: Map always attached to Footer

@@ -2606,7 +2606,7 @@ ol {
     color: var(--text-headline);
 }
 
-/* Leaflet Map Height Optimization */
+/* Google Map Height Optimization */
 #mapfil-map,
 .mapfil-map-container {
     height: 280px !important;
