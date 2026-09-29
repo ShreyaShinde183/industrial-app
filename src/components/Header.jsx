@@ -48,6 +48,13 @@ export const Header = ({ onOpenEnquiry }) => {
         setIsMobileMenuOpen(false);
     };
 
+    const handleProductItemClick = (productName) => {
+        closeMobileMenu();
+        if (onOpenEnquiry) {
+            onOpenEnquiry('Products & Services Menu', productName);
+        }
+    };
+
     return (
         <header className={`site-header ${isHidden ? 'is-hidden' : ''}`}>
             <div className="nav-container">
@@ -61,106 +68,106 @@ export const Header = ({ onOpenEnquiry }) => {
                         <li><a href="#about" className="nav-item" onClick={closeMobileMenu}>About Us</a></li>
                         <li><a href="#solutions" className="nav-item" onClick={closeMobileMenu}>Solutions</a></li>
                         <li className="has-dropdown">
-                            <a href="#products" className="nav-item">
+                            <a href="#products" className="nav-item" onClick={closeMobileMenu}>
                                 Products &amp; Services
                                 <span className="chevron">▾</span>
                             </a>
                             <ul className="dropdown-menu">
                                 <li>
-                                    <a href="https://www.mapfilters.com/clean-room-turnkey-project.php" target="_blank" rel="noopener noreferrer">Clean Room Turnkey Solution</a>
+                                    <a href="#products" onClick={() => handleProductItemClick('Clean Room Turnkey Solution')}>Clean Room Turnkey Solution</a>
                                 </li>
 
                                 <li className="dropdown-submenu">
-                                    <a href="https://www.mapfilters.com/clean-room-doors-frames.php" target="_blank" rel="noopener noreferrer" className="submenu-toggle">
+                                    <a href="#products" onClick={closeMobileMenu} className="submenu-toggle">
                                         <span>Clean Room Panels &amp; Doors</span>
                                         <span className="sub-arrow">›</span>
                                     </a>
                                     <ul className="submenu-flyout">
-                                        <li><a href="https://www.mapfilters.com/high-pressure-laminate-wall-panels.php" target="_blank" rel="noopener noreferrer">High Pressure Laminate Wall Panels</a></li>
-                                        <li><a href="https://www.mapfilters.com/types-of-wall-panels.php" target="_blank" rel="noopener noreferrer">Types of Wall Panels</a></li>
-                                        <li><a href="https://www.mapfilters.com/insulation-wall-panels.php" target="_blank" rel="noopener noreferrer">Insulation of Wall Panels</a></li>
-                                        <li><a href="https://www.mapfilters.com/clean-room-doors-frames.php" target="_blank" rel="noopener noreferrer">Clean Room Doors &amp; Frames</a></li>
-                                        <li><a href="https://www.mapfilters.com/walk-on-ceiling-panels.php" target="_blank" rel="noopener noreferrer">Walk On Ceiling Panels</a></li>
-                                        <li><a href="https://www.mapfilters.com/clean-room-view-panels.php" target="_blank" rel="noopener noreferrer">Cleanroom View Panels</a></li>
-                                        <li><a href="https://www.mapfilters.com/cleanroom-flooring-solutions.php" target="_blank" rel="noopener noreferrer">Cleanroom Flooring Solutions</a></li>
-                                        <li><a href="https://www.mapfilters.com/clean-room-validation.php" target="_blank" rel="noopener noreferrer">Clean Room Validation</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('High Pressure Laminate Wall Panels')}>High Pressure Laminate Wall Panels</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Types of Wall Panels')}>Types of Wall Panels</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Insulation of Wall Panels')}>Insulation of Wall Panels</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Clean Room Doors & Frames')}>Clean Room Doors &amp; Frames</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Walk On Ceiling Panels')}>Walk On Ceiling Panels</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Cleanroom View Panels')}>Cleanroom View Panels</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Cleanroom Flooring Solutions')}>Cleanroom Flooring Solutions</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Clean Room Validation')}>Clean Room Validation</a></li>
                                     </ul>
                                 </li>
 
                                 <li className="dropdown-submenu">
-                                    <a href="https://www.mapfilters.com/clean-room-equipment.php" target="_blank" rel="noopener noreferrer" className="submenu-toggle">
+                                    <a href="#products" onClick={closeMobileMenu} className="submenu-toggle">
                                         <span>Clean Room Equipment</span>
                                         <span className="sub-arrow">›</span>
                                     </a>
                                     <ul className="submenu-flyout">
-                                        <li><a href="https://www.mapfilters.com/air-shower.php" target="_blank" rel="noopener noreferrer">Air Shower</a></li>
-                                        <li><a href="https://www.mapfilters.com/dispensing-booth.php" target="_blank" rel="noopener noreferrer">Dispensing Booth</a></li>
-                                        <li><a href="https://www.mapfilters.com/sampling-booths.php" target="_blank" rel="noopener noreferrer">Sampling Booth</a></li>
-                                        <li><a href="https://www.mapfilters.com/horizontal-laminar-flow-unit.php" target="_blank" rel="noopener noreferrer">Horizontal Laminar Air Flow</a></li>
-                                        <li><a href="https://www.mapfilters.com/ceiling-suspended-laf.php" target="_blank" rel="noopener noreferrer">Ceiling Suspended LAF</a></li>
-                                        <li><a href="https://www.mapfilters.com/stand-mounted-laf.php" target="_blank" rel="noopener noreferrer">Stand Mounted LAF</a></li>
-                                        <li><a href="https://www.mapfilters.com/mobile-laminar-air-flow.php" target="_blank" rel="noopener noreferrer">Mobile Laminar Air Flow</a></li>
-                                        <li><a href="https://www.mapfilters.com/garment-storage-cabinet.php" target="_blank" rel="noopener noreferrer">Garment Storage Cabinet (Dynamic)</a></li>
-                                        <li><a href="https://www.mapfilters.com/garment-storage-cabinet-static.php" target="_blank" rel="noopener noreferrer">Garment Storage Cabinet (Static)</a></li>
-                                        <li><a href="https://www.mapfilters.com/bio-safety-cabinets.php" target="_blank" rel="noopener noreferrer">Biosafety Cabinet</a></li>
-                                        <li><a href="https://www.mapfilters.com/dynamic-pass-box.php" target="_blank" rel="noopener noreferrer">Dynamic Passbox</a></li>
-                                        <li><a href="https://www.mapfilters.com/static-pass-box.php" target="_blank" rel="noopener noreferrer">Static Passbox</a></li>
-                                        <li><a href="https://www.mapfilters.com/glove-box.php" target="_blank" rel="noopener noreferrer">Glove Box</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Air Shower')}>Air Shower</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Dispensing Booth')}>Dispensing Booth</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Sampling Booth')}>Sampling Booth</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Horizontal Laminar Air Flow')}>Horizontal Laminar Air Flow</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Ceiling Suspended LAF')}>Ceiling Suspended LAF</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Stand Mounted LAF')}>Stand Mounted LAF</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Mobile Laminar Air Flow')}>Mobile Laminar Air Flow</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Garment Storage Cabinet (Dynamic)')}>Garment Storage Cabinet (Dynamic)</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Garment Storage Cabinet (Static)')}>Garment Storage Cabinet (Static)</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Biosafety Cabinet')}>Biosafety Cabinet</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Dynamic Passbox')}>Dynamic Passbox</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Static Passbox')}>Static Passbox</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Glove Box')}>Glove Box</a></li>
                                     </ul>
                                 </li>
 
                                 <li className="dropdown-submenu">
-                                    <a href="https://www.mapfilters.com/modular-ot-turnkey-solutions.php" target="_blank" rel="noopener noreferrer" className="submenu-toggle">
+                                    <a href="#products" onClick={closeMobileMenu} className="submenu-toggle">
                                         <span>Modular Operation Theater</span>
                                         <span className="sub-arrow">›</span>
                                     </a>
                                     <ul className="submenu-flyout">
-                                        <li><a href="https://www.mapfilters.com/modular-ot-turnkey-solutions.php" target="_blank" rel="noopener noreferrer">Modular O.T. Turnkey Solutions</a></li>
-                                        <li><a href="https://www.mapfilters.com/operation-theater-laminar-flow.php" target="_blank" rel="noopener noreferrer">Operation Theater Laminar Flow</a></li>
-                                        <li><a href="https://www.mapfilters.com/ot-pendant.php" target="_blank" rel="noopener noreferrer">OT Pendant</a></li>
-                                        <li><a href="https://www.mapfilters.com/ot-surgeon-control-panel.php" target="_blank" rel="noopener noreferrer">OT Surgeon Control Panel</a></li>
-                                        <li><a href="https://www.mapfilters.com/x-ray-viewer.php" target="_blank" rel="noopener noreferrer">X-Ray Viewer</a></li>
-                                        <li><a href="https://www.mapfilters.com/scrub-sink.php" target="_blank" rel="noopener noreferrer">Scrub Sink</a></li>
-                                        <li><a href="https://www.mapfilters.com/pcr-cabinet-for-lab.php" target="_blank" rel="noopener noreferrer">PCR Cabinet for Lab</a></li>
-                                        <li><a href="https://www.mapfilters.com/fume-hood-cabinet-for-lab.php" target="_blank" rel="noopener noreferrer">Fume Hood Cabinet for Lab</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Modular O.T. Turnkey Solutions')}>Modular O.T. Turnkey Solutions</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Operation Theater Laminar Flow')}>Operation Theater Laminar Flow</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('OT Pendant')}>OT Pendant</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('OT Surgeon Control Panel')}>OT Surgeon Control Panel</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('X-Ray Viewer')}>X-Ray Viewer</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Scrub Sink')}>Scrub Sink</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('PCR Cabinet for Lab')}>PCR Cabinet for Lab</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Fume Hood Cabinet for Lab')}>Fume Hood Cabinet for Lab</a></li>
                                     </ul>
                                 </li>
 
                                 <li className="dropdown-submenu">
-                                    <a href="https://www.mapfilters.com/air-handling-unit.php" target="_blank" rel="noopener noreferrer" className="submenu-toggle">
+                                    <a href="#products" onClick={closeMobileMenu} className="submenu-toggle">
                                         <span>HVAC Solutions &amp; Equipment</span>
                                         <span className="sub-arrow">›</span>
                                     </a>
                                     <ul className="submenu-flyout">
-                                        <li><a href="https://www.mapfilters.com/air-handling-unit.php" target="_blank" rel="noopener noreferrer">Air Handling Unit</a></li>
-                                        <li><a href="https://www.mapfilters.com/hepa-terminal-box.php" target="_blank" rel="noopener noreferrer">Hepa Terminal Box</a></li>
-                                        <li><a href="https://www.mapfilters.com/hvac-ducting.php" target="_blank" rel="noopener noreferrer">HVAC Ducting</a></li>
-                                        <li><a href="https://www.mapfilters.com/return-air-diffuser.php" target="_blank" rel="noopener noreferrer">Return Air Diffuser</a></li>
-                                        <li><a href="https://www.mapfilters.com/volume-control-damper.php" target="_blank" rel="noopener noreferrer">Volume Control Damper</a></li>
-                                        <li><a href="https://www.mapfilters.com/return-air-grill.php" target="_blank" rel="noopener noreferrer">Return Air Grill</a></li>
-                                        <li><a href="https://www.mapfilters.com/return-air-riser.php" target="_blank" rel="noopener noreferrer">Return Air Riser</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Air Handling Unit')}>Air Handling Unit</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Hepa Terminal Box')}>Hepa Terminal Box</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('HVAC Ducting')}>HVAC Ducting</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Return Air Diffuser')}>Return Air Diffuser</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Volume Control Damper')}>Volume Control Damper</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Return Air Grill')}>Return Air Grill</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Return Air Riser')}>Return Air Riser</a></li>
                                     </ul>
                                 </li>
 
                                 <li className="dropdown-submenu">
-                                    <a href="https://www.mapfilters.com/pre-filter.php" target="_blank" rel="noopener noreferrer" className="submenu-toggle">
+                                    <a href="#products" onClick={closeMobileMenu} className="submenu-toggle">
                                         <span>Air Filters</span>
                                         <span className="sub-arrow">›</span>
                                     </a>
                                     <ul className="submenu-flyout">
-                                        <li><a href="https://www.mapfilters.com/pre-filter.php" target="_blank" rel="noopener noreferrer">Pre Filter</a></li>
-                                        <li><a href="https://www.mapfilters.com/fine-filter.php" target="_blank" rel="noopener noreferrer">Fine Filter</a></li>
-                                        <li><a href="https://www.mapfilters.com/conventional-hepa-filter.php" target="_blank" rel="noopener noreferrer">Conventional Hepa Filter</a></li>
-                                        <li><a href="https://www.mapfilters.com/super-hepa-filter.php" target="_blank" rel="noopener noreferrer">Super Hepa Filter</a></li>
-                                        <li><a href="https://www.mapfilters.com/minipleat-hepa-filter-gasket-seal.php" target="_blank" rel="noopener noreferrer">Minipleat Hepa Filter (Gasket Seal)</a></li>
-                                        <li><a href="https://www.mapfilters.com/minipleat-hepa-filter-gel-seal.php" target="_blank" rel="noopener noreferrer">Minipleat Hepa Filter (Gel Seal)</a></li>
-                                        <li><a href="https://www.mapfilters.com/basket-filter.php" target="_blank" rel="noopener noreferrer">Basket Filter</a></li>
-                                        <li><a href="https://www.mapfilters.com/dust-filter-cartridge.php" target="_blank" rel="noopener noreferrer">Dust Filter Cartridge</a></li>
-                                        <li><a href="https://www.mapfilters.com/din-type-filter-cartridge.php" target="_blank" rel="noopener noreferrer">Din Type Filter Cartridge</a></li>
-                                        <li><a href="https://www.mapfilters.com/pp-housing.php" target="_blank" rel="noopener noreferrer">PP Housing</a></li>
-                                        <li><a href="https://www.mapfilters.com/wound-cartridge.php" target="_blank" rel="noopener noreferrer">Wound Cartridge</a></li>
-                                        <li><a href="https://www.mapfilters.com/pp-pleated-cartridge.php" target="_blank" rel="noopener noreferrer">PP Pleated Cartridge</a></li>
-                                        <li><a href="https://www.mapfilters.com/pleated-bag-with-metal-top-bottom.php" target="_blank" rel="noopener noreferrer">Pleated Bag With Metal Top &amp; Bottom</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Pre Filter')}>Pre Filter</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Fine Filter')}>Fine Filter</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Conventional Hepa Filter')}>Conventional Hepa Filter</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Super Hepa Filter')}>Super Hepa Filter</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Minipleat Hepa Filter (Gasket Seal)')}>Minipleat Hepa Filter (Gasket Seal)</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Minipleat Hepa Filter (Gel Seal)')}>Minipleat Hepa Filter (Gel Seal)</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Basket Filter')}>Basket Filter</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Dust Filter Cartridge')}>Dust Filter Cartridge</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Din Type Filter Cartridge')}>Din Type Filter Cartridge</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('PP Housing')}>PP Housing</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Wound Cartridge')}>Wound Cartridge</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('PP Pleated Cartridge')}>PP Pleated Cartridge</a></li>
+                                        <li><a href="#products" onClick={() => handleProductItemClick('Pleated Bag With Metal Top & Bottom')}>Pleated Bag With Metal Top &amp; Bottom</a></li>
                                     </ul>
                                 </li>
                             </ul>

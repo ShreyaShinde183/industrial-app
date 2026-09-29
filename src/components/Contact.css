@@ -4,7 +4,7 @@
    ========================================================================== */
 
 .contact-section {
-    padding: 3.5rem 0 4rem;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
     background: #F8FAFC;
     position: relative;
     border-top: 1px solid #E2E8F0;
@@ -56,7 +56,7 @@
 
 /* Map Embedded Area */
 .contact-map-wrapper {
-    margin-bottom: 3rem;
+    margin-bottom: 2.25rem;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);

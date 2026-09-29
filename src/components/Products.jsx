@@ -19,9 +19,9 @@ const PRODUCTS = [
         summary: 'Modular cleanroom turnkey solutions, ISO 5 to ISO 8 validation, panels, doors & ceilings.',
         detail: 'Turnkey modular cleanroom construction conforming to ISO 14644 & cGMP. Complete engineering from concept to commissioning with airtight coving and validation.',
         points: [
-            { label: 'Clean Room Turnkey Solution ↗', url: 'https://www.mapfilters.com/clean-room-turnkey-project.php' },
-            { label: 'Clean Room Validation ↗', url: 'https://www.mapfilters.com/clean-room-validation.php' },
-            { label: 'Flooring & Coving ↗', url: 'https://www.mapfilters.com/cleanroom-flooring-solutions.php' }
+            { label: 'Clean Room Turnkey Solution' },
+            { label: 'Clean Room Validation' },
+            { label: 'Flooring & Coving' }
         ]
     },
     {
@@ -41,10 +41,10 @@ const PRODUCTS = [
         summary: 'Laminar airflow units, dynamic passboxes, sampling & dispensing sterile booths.',
         detail: 'Certified stainless steel (SS 304/316) contamination control equipment with magnehelic gauge differential pressure monitoring and DOP test ports.',
         points: [
-            { label: 'Air Shower ↗', url: 'https://www.mapfilters.com/air-shower.php' },
-            { label: 'Dynamic Passbox ↗', url: 'https://www.mapfilters.com/dynamic-pass-box.php' },
-            { label: 'Dispensing & Sampling Booth ↗', url: 'https://www.mapfilters.com/dispensing-booth.php' },
-            { label: 'Biosafety Cabinet ↗', url: 'https://www.mapfilters.com/bio-safety-cabinets.php' }
+            { label: 'Air Shower' },
+            { label: 'Dynamic Passbox' },
+            { label: 'Dispensing & Sampling Booth' },
+            { label: 'Biosafety Cabinet' }
         ]
     },
     {
@@ -63,10 +63,10 @@ const PRODUCTS = [
         summary: 'HPL wall panels, flush airtight doors, walk-on ceilings & double glazed view panels.',
         detail: 'High-pressure laminate (HPL) & powder-coated GI modular partitions with fire-retardant PUF/Rockwool insulation and flush silicone sealant joints.',
         points: [
-            { label: 'HPL Wall Panels ↗', url: 'https://www.mapfilters.com/high-pressure-laminate-wall-panels.php' },
-            { label: 'Clean Room Doors & Frames ↗', url: 'https://www.mapfilters.com/clean-room-doors-frames.php' },
-            { label: 'Walk On Ceiling Panels ↗', url: 'https://www.mapfilters.com/walk-on-ceiling-panels.php' },
-            { label: 'Cleanroom View Panels ↗', url: 'https://www.mapfilters.com/clean-room-view-panels.php' }
+            { label: 'HPL Wall Panels' },
+            { label: 'Clean Room Doors & Frames' },
+            { label: 'Walk On Ceiling Panels' },
+            { label: 'Cleanroom View Panels' }
         ]
     },
     {
@@ -86,10 +86,10 @@ const PRODUCTS = [
         summary: 'Surgical OT pendants, surgeon control panels, laminar ceiling hoods & scrub sinks.',
         detail: 'Complete NABH & ISO 14644 compliant surgical suites with anti-static vinyl flooring, medical gas alarm pendants, and HEPA laminar air flow hoods.',
         points: [
-            { label: 'Modular O.T. Turnkey Solutions ↗', url: 'https://www.mapfilters.com/modular-ot-turnkey-solutions.php' },
-            { label: 'OT Laminar Flow Hood ↗', url: 'https://www.mapfilters.com/operation-theater-laminar-flow.php' },
-            { label: 'Surgeon Control Panel ↗', url: 'https://www.mapfilters.com/ot-surgeon-control-panel.php' },
-            { label: 'Surgical Scrub Sink ↗', url: 'https://www.mapfilters.com/scrub-sink.php' }
+            { label: 'Modular O.T. Turnkey Solutions' },
+            { label: 'OT Laminar Flow Hood' },
+            { label: 'Surgeon Control Panel' },
+            { label: 'Surgical Scrub Sink' }
         ]
     },
     {
@@ -109,10 +109,10 @@ const PRODUCTS = [
         summary: 'Custom Air Handling Units, precision dehumidification, balancing dampers & GI ducting.',
         detail: 'Energy-efficient double skin AHUs with EC plug fans, thermal break profile, DX/chilled water cooling coils, and tight volume control dampers.',
         points: [
-            { label: 'Air Handling Unit (AHU) ↗', url: 'https://www.mapfilters.com/air-handling-unit.php' },
-            { label: 'HEPA Terminal Box ↗', url: 'https://www.mapfilters.com/hepa-terminal-box.php' },
-            { label: 'HVAC Ducting & VCD ↗', url: 'https://www.mapfilters.com/hvac-ducting.php' },
-            { label: 'Return Air Risers ↗', url: 'https://www.mapfilters.com/return-air-riser.php' }
+            { label: 'Air Handling Unit (AHU)' },
+            { label: 'HEPA Terminal Box' },
+            { label: 'HVAC Ducting & VCD' },
+            { label: 'Return Air Risers' }
         ]
     },
     {
@@ -131,10 +131,10 @@ const PRODUCTS = [
         summary: 'Mini-pleat HEPA H13/H14, ULPA U15, pocket fine filters, and washable pre-filters.',
         detail: 'Direct in-house manufacturing of EN 1822 / ISO 29463 certified filters tested with individual efficiency scan test reports.',
         points: [
-            { label: 'Minipleat HEPA (Gasket Seal) ↗', url: 'https://www.mapfilters.com/minipleat-hepa-filter-gasket-seal.php' },
-            { label: 'Minipleat HEPA (Gel Seal) ↗', url: 'https://www.mapfilters.com/minipleat-hepa-filter-gel-seal.php' },
-            { label: 'Pre & Fine Filters ↗', url: 'https://www.mapfilters.com/pre-filter.php' },
-            { label: 'Dust Filter Cartridge ↗', url: 'https://www.mapfilters.com/dust-filter-cartridge.php' }
+            { label: 'Minipleat HEPA (Gasket Seal)' },
+            { label: 'Minipleat HEPA (Gel Seal)' },
+            { label: 'Pre & Fine Filters' },
+            { label: 'Dust Filter Cartridge' }
         ]
     },
     {
@@ -152,9 +152,9 @@ const PRODUCTS = [
         summary: 'DOP filter testing, particle counting validation, airflow balancing & certified AMC.',
         detail: 'Scheduled preventive cleanroom maintenance contracts, calibrated instrument testing (particle count, velocity, recovery), and emergency replacement spares.',
         points: [
-            { label: 'Clean Room Validation ↗', url: 'https://www.mapfilters.com/clean-room-validation.php' },
-            { label: 'DOP Integrity Testing ↗', url: 'https://www.mapfilters.com/clean-room-validation.php' },
-            { label: 'AMC Contracts & Spares ↗', url: 'https://www.mapfilters.com/clean-room-turnkey-project.php' }
+            { label: 'Clean Room Validation' },
+            { label: 'DOP Integrity Testing' },
+            { label: 'AMC Contracts & Spares' }
         ]
     },
     {
@@ -172,9 +172,9 @@ const PRODUCTS = [
         summary: 'Anti-corrosive chemical workbenches, fume hood extraction & PCR sterile cabinets.',
         detail: 'Modular chemical-resistant laboratory casework, epoxy worktops, reagent racks, laboratory fume hoods, and sterile PCR laminar cabinets.',
         points: [
-            { label: 'Fume Hood Cabinet for Lab ↗', url: 'https://www.mapfilters.com/fume-hood-cabinet-for-lab.php' },
-            { label: 'PCR Cabinet for Lab ↗', url: 'https://www.mapfilters.com/pcr-cabinet-for-lab.php' },
-            { label: 'Cleanroom Furniture & Casework ↗', url: 'https://www.mapfilters.com/clean-room-equipment.php' }
+            { label: 'Fume Hood Cabinet for Lab' },
+            { label: 'PCR Cabinet for Lab' },
+            { label: 'Cleanroom Furniture & Casework' }
         ]
     }
 ];
@@ -262,16 +262,30 @@ export const Products = ({ onOpenEnquiry }) => {
                                         <span className="points-heading">Direct Catalog Solutions:</span>
                                         <div className="cleanroom-card-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                                             {product.points.map((pt, pIdx) => (
-                                                <a
+                                                <button
                                                     key={pIdx}
-                                                    href={pt.url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
+                                                    type="button"
+                                                    onClick={() => onOpenEnquiry && onOpenEnquiry('Products Grid', pt.label)}
                                                     className="product-point-link"
-                                                    style={{ fontSize: '10px' }}
+                                                    style={{
+                                                        fontSize: '10.5px',
+                                                        background: '#f8fafc',
+                                                        border: '1px solid var(--border-default)',
+                                                        borderRadius: '4px',
+                                                        padding: '3px 7px',
+                                                        cursor: 'pointer',
+                                                        color: 'var(--brand-primary, #00632e)',
+                                                        fontWeight: '600',
+                                                        display: 'inline-flex',
+                                                        alignItems: 'center',
+                                                        gap: '4px',
+                                                        transition: 'all 0.15s ease'
+                                                    }}
+                                                    title={`Inquire about ${pt.label}`}
                                                 >
-                                                    {pt.label}
-                                                </a>
+                                                    <span>•</span>
+                                                    <span>{pt.label}</span>
+                                                </button>
                                             ))}
                                         </div>
                                     </div>

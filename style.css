@@ -1204,7 +1204,7 @@ ol {
    7. About Us Section (Clean Room Creators)
    -------------------------------------------------------------------------- */
 .about-section {
-    padding: 2rem 0;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
     background: #ffffff;
 }
 
@@ -1417,8 +1417,9 @@ ol {
    8. Complete Cleanroom Solutions (Turnkey Capability)
    -------------------------------------------------------------------------- */
 .solutions-flow-section {
-    padding: 1.85rem 0;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
     background: var(--bg-subtle);
+    border-top: 1px solid var(--border-default);
 }
 
 #solutions .section-heading {
@@ -1670,8 +1671,9 @@ ol {
    9. Cleanroom Products & Services Grid (Matching Reference)
    -------------------------------------------------------------------------- */
 .cleanroom-products-section {
-    padding: 2.5rem 0 2.75rem;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
     background: #ffffff;
+    border-top: 1px solid var(--border-default);
 }
 
 .cleanroom-products-grid {
@@ -1866,8 +1868,9 @@ ol {
    10. Industries We Serve (6 Cards)
    -------------------------------------------------------------------------- */
 .industries-cleanroom-section {
-    padding: 1.85rem 0 2rem;
-    background: var(--bg-subtle);
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    background: #ffffff;
+    border-top: 1px solid var(--border-default);
 }
 
 /* Header with Navigation Controls (Tech Mahindra Reference Layout) */
@@ -2243,8 +2246,9 @@ ol {
    11. Why Mapfil? (9-Card Value Grid - Compact Size)
    -------------------------------------------------------------------------- */
 .why-section {
-    padding: 1.5rem 0 1.75rem;
-    background: #ffffff;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    background: var(--bg-subtle);
+    border-top: 1px solid var(--border-default);
 }
 
 .why-grid {
@@ -2625,8 +2629,9 @@ ol {
    13. Contact Us Section & Direct Inquiry Form
    -------------------------------------------------------------------------- */
 .contact-section {
-    padding: 1.85rem 0 2rem;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
     background: var(--bg-subtle);
+    border-top: 1px solid var(--border-default);
 }
 
 #contact .section-heading {

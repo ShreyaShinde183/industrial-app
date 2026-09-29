@@ -2,8 +2,9 @@
    11. Why Mapfil? (9-Card Value Grid - Compact Size)
    -------------------------------------------------------------------------- */
 .why-section {
-    padding: 1.5rem 0 1.75rem;
-    background: #ffffff;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    background: var(--bg-subtle, #f8fafc);
+    border-top: 1px solid var(--border-default, #e2e8f0);
 }
 
 .why-grid {

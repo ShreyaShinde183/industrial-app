@@ -2,8 +2,9 @@
    9. Cleanroom Products & Services Grid (Matching Reference)
    -------------------------------------------------------------------------- */
 .cleanroom-products-section {
-    padding: 2.5rem 0 2.75rem;
+    padding: clamp(3rem, 5vw, 4.25rem) 0;
     background: #ffffff;
+    border-top: 1px solid var(--border-default, #e2e8f0);
 }
 
 .cleanroom-products-grid {
