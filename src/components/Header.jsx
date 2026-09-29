@@ -66,7 +66,6 @@ export const Header = ({ onOpenEnquiry }) => {
                     <ul className="nav-menu">
                         <li><a href="#hero" className="nav-item active" onClick={closeMobileMenu}>Home</a></li>
                         <li><a href="#about" className="nav-item" onClick={closeMobileMenu}>About Us</a></li>
-                        <li><a href="#solutions" className="nav-item" onClick={closeMobileMenu}>Solutions</a></li>
                         <li className="has-dropdown">
                             <a href="#products" className="nav-item" onClick={closeMobileMenu}>
                                 Products &amp; Services
@@ -183,7 +182,7 @@ export const Header = ({ onOpenEnquiry }) => {
                         className="quote-nav-btn"
                         onClick={() => onOpenEnquiry && onOpenEnquiry('Navbar Action')}
                     >
-                        <span>Get a Quote</span>
+                        <span>I'm Curious</span>
                         <span className="search-icon">🔍</span>
                     </button>
 
