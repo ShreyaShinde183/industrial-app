@@ -310,7 +310,7 @@ export const Products = ({ onOpenEnquiry }) => {
                                         onClick={() => onOpenEnquiry && onOpenEnquiry('Products Grid', product.title)}
                                         style={{ flex: 1, background: '#00632e' }}
                                     >
-                                        <span>Request Quote</span>
+                                        <span>Get a Quote</span>
                                         <span className="arrow-icon">↗</span>
                                     </button>
                                 </div>

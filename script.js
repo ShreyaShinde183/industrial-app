@@ -73,7 +73,7 @@ function initApp() {
     document.querySelectorAll('.quote-nav-btn, .btn-secondary-navy, .btn-card-curious').forEach(btn => {
         btn.addEventListener('click', (e) => {
             // Ensure modal opens reliably
-            const source = btn.dataset.source || 'Curious Action';
+            const source = btn.dataset.source || 'Get a Quote Action';
             const product = btn.dataset.product || null;
             window.openQuoteModal(source, product);
         });

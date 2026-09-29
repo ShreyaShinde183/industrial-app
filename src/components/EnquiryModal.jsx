@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './EnquiryModal.css';
 
-export const EnquiryModal = ({ isOpen, onClose, source = "I'm Curious", product = '' }) => {
+export const EnquiryModal = ({ isOpen, onClose, source = "Get a Quote", product = '' }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -75,7 +75,7 @@ export const EnquiryModal = ({ isOpen, onClose, source = "I'm Curious", product 
             message: formData.message.trim(),
             notes: formData.message.trim(),
             product: product || 'General Cleanroom Enquiry',
-            source: source || "I'm Curious"
+            source: source || "Get a Quote"
         };
 
         try {

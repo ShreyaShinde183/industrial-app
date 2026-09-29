@@ -88,7 +88,7 @@ export const Hero = ({ onOpenEnquiry }) => {
                             className="btn-secondary-navy"
                             onClick={() => onOpenEnquiry && onOpenEnquiry('Hero Action', 'General Inquiry')}
                         >
-                            <span>I'm Curious</span>
+                            <span>Get a Quote</span>
                             <span className="search-icon">🔍</span>
                         </button>
                     </div>

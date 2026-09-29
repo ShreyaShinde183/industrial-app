@@ -14,13 +14,13 @@ import FloatingWidgets from './components/FloatingWidgets';
 
 export function App() {
     const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
-    const [enquirySource, setEnquirySource] = useState("I'm Curious");
+    const [enquirySource, setEnquirySource] = useState("Get a Quote");
     const [enquiryProduct, setEnquiryProduct] = useState('');
 
     const [isProjectOpen, setIsProjectOpen] = useState(false);
     const [projectSource, setProjectSource] = useState('Premium CTA');
 
-    const handleOpenEnquiry = (source = "I'm Curious", product = '') => {
+    const handleOpenEnquiry = (source = "Get a Quote", product = '') => {
         setEnquirySource(source);
         setEnquiryProduct(product);
         setIsEnquiryOpen(true);
@@ -43,7 +43,7 @@ export function App() {
     // Global bridge so Google Maps InfoWindows or external buttons can trigger modals seamlessly
     useEffect(() => {
         window.openQuoteModal = (source, product) => {
-            handleOpenEnquiry(source || "I'm Curious", product || '');
+            handleOpenEnquiry(source || "Get a Quote", product || '');
         };
         window.openProjectModal = (source) => {
             handleOpenProject(source || 'Premium CTA');

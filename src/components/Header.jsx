@@ -183,7 +183,7 @@ export const Header = ({ onOpenEnquiry }) => {
                         className="quote-nav-btn"
                         onClick={() => onOpenEnquiry && onOpenEnquiry('Navbar Action')}
                     >
-                        <span>I'm Curious</span>
+                        <span>Get a Quote</span>
                         <span className="search-icon">🔍</span>
                     </button>
 
