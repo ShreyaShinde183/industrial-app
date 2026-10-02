@@ -65,7 +65,6 @@ export const Hero = ({ onOpenEnquiry }) => {
             <div className="hero-container">
                 <div className="hero-content">
                     <div className="spec-badge">
-                        <span className="badge-icon">🌿</span>
                         <span>Clean Room Creators &amp; Complete HVAC Solutions</span>
                     </div>
 
