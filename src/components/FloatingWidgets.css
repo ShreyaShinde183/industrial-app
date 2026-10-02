@@ -1,7 +1,7 @@
 /* 4. Floating Sticky Widgets */
 .floating-brochure-btn {
     position: fixed;
-    bottom: 88px;
+    bottom: 24px;
     left: 24px;
     z-index: 999;
     display: inline-flex;
@@ -23,29 +23,6 @@
     width: auto;
     display: block;
     border-radius: 6px;
-}
-
-.floating-wa-btn {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #25D366;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
-    z-index: 999;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.floating-wa-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.65);
-    color: #ffffff;
 }
 
 /* Responsive Footer Adjustments */
@@ -80,14 +57,8 @@
         text-align: center;
         justify-content: center;
     }
-    .floating-wa-btn {
-        bottom: 16px;
-        left: 16px;
-        width: 46px;
-        height: 46px;
-    }
     .floating-brochure-btn {
-        bottom: 70px;
+        bottom: 16px;
         left: 16px;
     }
     .floating-brochure-img {

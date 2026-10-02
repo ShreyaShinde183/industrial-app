@@ -907,7 +907,6 @@ function initApp() {
     const projectModal = document.getElementById('projectModal');
     const projectForm = document.getElementById('projectEnquiryForm');
     const projectStatusCard = document.getElementById('projectStatusCard');
-    const projectWhatsAppBtn = document.getElementById('projectWhatsAppBtn');
     const projectEmailBtn = document.getElementById('projectEmailBtn');
 
     window.openProjectModal = function (source = 'Direct Inquiry') {
@@ -993,13 +992,7 @@ function initApp() {
             window.MAPFIL_API_PROJECT_HOOK(payload);
         }
 
-        // Configure direct one-click WhatsApp & Email dispatch
-        const textMsg = encodeURIComponent(
-            `Hello MAP FILTERS Team,\n\nI would like to submit a cleanroom project enquiry:\n- Name: ${name}\n- Company: ${company}\n- Industry: ${industry}\n- Phone: ${phone}\n- Email: ${email}\n- Requirement: ${requirement}`
-        );
-        if (projectWhatsAppBtn) {
-            projectWhatsAppBtn.href = `https://api.whatsapp.com/send?phone=919823252793&text=${textMsg}`;
-        }
+        // Configure direct one-click Email dispatch
 
         const mailSubject = encodeURIComponent(`Cleanroom Project Enquiry - ${company} (${name})`);
         const mailBody = encodeURIComponent(

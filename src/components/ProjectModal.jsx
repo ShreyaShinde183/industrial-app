@@ -78,10 +78,6 @@ export const ProjectModal = ({ isOpen, onClose, source = 'Premium CTA' }) => {
         setIsPrepared(true);
     };
 
-    const whatsAppText = encodeURIComponent(
-        `Hello MAP FILTERS Team,\n\nI would like to submit a cleanroom project enquiry:\n- Name: ${formData.name}\n- Company: ${formData.company}\n- Industry: ${formData.industry}\n- Phone: ${formData.phone}\n- Email: ${formData.email}\n- Requirement: ${formData.requirement}`
-    );
-
     const mailSubject = encodeURIComponent(`Cleanroom Project Enquiry - ${formData.company} (${formData.name})`);
     const mailBody = encodeURIComponent(
         `Dear MAP FILTERS Technical Desk,\n\nPlease find my cleanroom project enquiry:\n\nName: ${formData.name}\nCompany: ${formData.company}\nIndustry: ${formData.industry}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nProject Scope & Requirement:\n${formData.requirement}\n\nLooking forward to your technical quotation.\nBest regards,\n${formData.name}`
@@ -219,15 +215,6 @@ export const ProjectModal = ({ isOpen, onClose, source = 'Premium CTA' }) => {
                             Your project parameters have been recorded. For instant dispatch without waiting for backend processing, you can connect directly with our desk:
                         </p>
                         <div className="status-actions-wrap" style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
-                            <a
-                                href={`https://api.whatsapp.com/send?phone=919823252793&text=${whatsAppText}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-dispatch-whatsapp"
-                                style={{ background: '#25D366', color: '#fff', padding: '0.65rem 1.25rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '700', fontSize: '13px' }}
-                            >
-                                <span>💬 Dispatch via WhatsApp</span>
-                            </a>
                             <a
                                 href={`mailto:karunakar@mapfilters.com?subject=${mailSubject}&body=${mailBody}`}
                                 className="btn-dispatch-email"

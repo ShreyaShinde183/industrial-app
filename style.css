@@ -68,8 +68,6 @@
     --brand-cyan-text: #004d24;
 
     /* Communication Accents */
-    --whatsapp-color: #25d366;
-    --whatsapp-hover: #1ebd5a;
     --dock-phone: #0B1B3D;
 
     /* Typography & Text */
@@ -3268,7 +3266,7 @@ ol {
 /* 4. Floating Sticky Widgets */
 .floating-brochure-btn {
     position: fixed;
-    bottom: 88px;
+    bottom: 24px;
     left: 24px;
     z-index: 999;
     display: inline-flex;
@@ -3290,29 +3288,6 @@ ol {
     width: auto;
     display: block;
     border-radius: 6px;
-}
-
-.floating-wa-btn {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #25D366;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
-    z-index: 999;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.floating-wa-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.65);
-    color: #ffffff;
 }
 
 /* Responsive Footer Adjustments */
@@ -3347,14 +3322,8 @@ ol {
         text-align: center;
         justify-content: center;
     }
-    .floating-wa-btn {
-        bottom: 16px;
-        left: 16px;
-        width: 46px;
-        height: 46px;
-    }
     .floating-brochure-btn {
-        bottom: 70px;
+        bottom: 16px;
         left: 16px;
     }
     .floating-brochure-img {
@@ -3597,25 +3566,6 @@ ol {
     flex-wrap: wrap;
 }
 
-.btn-dispatch-whatsapp {
-    background: #25d366;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 0.75rem 1.4rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all var(--transition-fast);
-}
-
-.btn-dispatch-whatsapp:hover {
-    background: #1ebd5a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
 
 .btn-dispatch-email {
     background: var(--brand-navy);
