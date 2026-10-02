@@ -1,24 +1,38 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import MapFilters from "./components/MapFilters";
-import About from "./components/About";
-import Contact from "./components/Contact";
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from '../pages/home';
+import About from '../pages/about';
+import Products from '../pages/Products';
+import Contact from '../pages/contact';
+import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <div className="site-wrapper">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            {/* Home page */}
+            <Route path="/" element={<Home />} />
 
-        {/* Home page */}
-        <Route path="/" element={<MapFilters />} />
+            {/* About page */}
+            <Route path="/about" element={<About />} />
 
-        {/* About page */}
-        <Route path="/about" element={<About />} />
+            {/* Products page */}
+            <Route path="/products" element={<Products />} />
 
-        {/* Contact page */}
-        <Route path="/contact" element={<Contact />} />
+            {/* Contact page */}
+            <Route path="/contact" element={<Contact />} />
 
-      </Routes>
+            {/* Catch-all redirect to home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
