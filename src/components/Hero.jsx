@@ -1,55 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 
-const HERO_SLIDES = [
-    {
-        bg: 'assets/hero-slide-1.jpg',
-        badge: 'Turnkey Engineering • Critical Environments',
-        titlePrefix: 'Clean Room',
-        titleAccent: 'Turnkey',
-        titleSuffix: 'Projects',
-        chips: ['Turnkey Solutions', 'Wall Panels', 'Ceiling Systems', 'Validation'],
-        description: 'MAP FILTERS INDIA PVT. LTD. is an ISO 9001:2015, ISO 14001, and ZED Bronze certified manufacturer. We design, fabricate, install, and validate turnkey modular cleanrooms conforming to ISO 14644 & cGMP standards.',
-        showcaseImg: 'assets/product-cleanroom-systems.jpg',
-        showcaseTag: 'ISO 14644 Validated',
-        showcaseTitle: 'Turnkey Modular Cleanrooms'
-    },
-    {
-        bg: 'assets/hero-slide-2.jpg',
-        badge: 'Healthcare & Hospital Infrastructure',
-        titlePrefix: 'Modular',
-        titleAccent: 'Operation',
-        titleSuffix: 'Theatre',
-        chips: ['Surgeon Panels', 'Laminar Flow Ceilings', 'OT Pendants', 'Scrub Sinks'],
-        description: 'Advanced surgical suites engineered to NABH and international sterile protocols. Featuring seamless anti-microbial wall panels, laminar airflow hoods, and integrated surgeon control panels.',
-        showcaseImg: 'assets/official-ot-laf.jpg',
-        showcaseTag: 'NABH Compliant',
-        showcaseTitle: 'Surgical Suite Laminar Flow'
-    },
-    {
-        bg: 'assets/hero-slide-3.jpg',
-        badge: 'High-Efficiency Micro Filtration',
-        titlePrefix: 'Air',
-        titleAccent: 'Filters &',
-        titleSuffix: 'HEPA Systems',
-        chips: ['Pre Filter G4', 'Fine Filter F7/F9', 'HEPA H13/H14', 'Basket Filter'],
-        description: 'Manufactured in our 25,000+ sq. ft. Bhiwandi facility. 100% individually leak-tested using DOP/PAO aerosol photometers according to EN 1822 / ISO 29463 to ensure 99.997% efficiency at 0.3 microns.',
-        showcaseImg: 'assets/product-filters-systems.jpg',
-        showcaseTag: '99.997% @ 0.3μm',
-        showcaseTitle: 'HEPA & ULPA Filtration'
-    },
-    {
-        bg: 'assets/hero-slide-4.jpg',
-        badge: 'HVAC Engineering & Thermal Systems',
-        titlePrefix: 'Air Handling',
-        titleAccent: 'Unit (AHU)',
-        titleSuffix: 'Solutions',
-        chips: ['Double Skin AHU', 'Chilled Water Coils', 'Ducting', 'VCD Dampers'],
-        description: 'Precision temperature, humidity, and positive/negative room pressure control systems. Double skin AHUs with EC fans and thermal break profiles built for contamination control.',
-        showcaseImg: 'assets/official-ahu.jpg',
-        showcaseTag: 'Double Skin AHU',
-        showcaseTitle: 'Thermal HVAC Engineering'
-    }
+const SLIDES = [
+    'assets/hero-slide-1.jpg',
+    'assets/hero-slide-2.jpg',
+    'assets/hero-slide-3.jpg',
+    'assets/hero-slide-4.jpg'
 ];
 
 export const Hero = ({ onOpenEnquiry }) => {
@@ -59,8 +15,8 @@ export const Hero = ({ onOpenEnquiry }) => {
     const startSlider = () => {
         if (intervalRef.current) clearInterval(intervalRef.current);
         intervalRef.current = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-        }, 5000);
+            setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+        }, 3000);
     };
 
     useEffect(() => {
@@ -86,27 +42,15 @@ export const Hero = ({ onOpenEnquiry }) => {
         startSlider();
     };
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-        startSlider();
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-        startSlider();
-    };
-
-    const activeSlide = HERO_SLIDES[currentSlide];
-
     return (
         <section className="hero-section" id="hero">
-            {/* Live Dynamic Background Slider with Shimmer Airflow */}
+            {/* Live Dynamic Background Slider */}
             <div className="hero-bg-slider" aria-hidden="true">
-                {HERO_SLIDES.map((slide, idx) => (
+                {SLIDES.map((slideUrl, idx) => (
                     <div
-                        key={idx}
+                        key={slideUrl}
                         className={`hero-bg-slide ${currentSlide === idx ? 'is-active' : ''}`}
-                        style={{ backgroundImage: `url('${slide.bg}')` }}
+                        style={{ backgroundImage: `url('${slideUrl}')` }}
                     />
                 ))}
                 <div className="hero-bg-overlay"></div>
@@ -116,139 +60,70 @@ export const Hero = ({ onOpenEnquiry }) => {
                 </div>
             </div>
 
+            <div className="hero-corner-accent"></div>
+
             <div className="hero-container">
-                <div className="hero-layout-grid">
-                    {/* Left Column: Dynamic Typography, Chips, Dual CTA & Trust Strip */}
-                    <div className="hero-text-col">
-                        <div className="hero-badge-pill">
-                            <span className="pulse-dot-green"></span>
-                            <span>{activeSlide.badge}</span>
-                        </div>
-
-                        <h1 className="hero-main-title">
-                            {activeSlide.titlePrefix}{' '}
-                            <span className="hero-title-accent">{activeSlide.titleAccent}</span>{' '}
-                            {activeSlide.titleSuffix}
-                        </h1>
-
-                        {/* Sub-product Chips Strip */}
-                        <div className="hero-chips-row">
-                            {activeSlide.chips.map((chip, idx) => (
-                                <span key={idx} className="hero-chip">
-                                    <span className="chip-dot"></span>
-                                    {chip}
-                                </span>
-                            ))}
-                        </div>
-
-                        <p className="hero-description-text">
-                            {activeSlide.description}
-                        </p>
-
-                        {/* Dual Action Buttons (Red 'Get a Quote' + Green 'Explore Solutions') */}
-                        <div className="hero-actions-row">
-                            <button
-                                type="button"
-                                className="fly-plane-btn fly-plane-btn--hero"
-                                onClick={() => onOpenEnquiry && onOpenEnquiry('Hero Action', `${activeSlide.titlePrefix} ${activeSlide.titleAccent} ${activeSlide.titleSuffix}`)}
-                            >
-                                <span className="fly-plane-icon">✈</span>
-                                <span>Get a Quote</span>
-                            </button>
-
-                            <a href="#products" className="btn-explore-green">
-                                <span>Explore Solutions</span>
-                                <span className="explore-arrow">↗</span>
-                            </a>
-                        </div>
-
-                        {/* Trust Badge Strip */}
-                        <div className="hero-trust-strip">
-                            <div className="trust-badge-item">
-                                <span className="trust-icon">🛡️</span>
-                                <span className="trust-text">ISO 9001:2015 &amp; ZED Certified</span>
-                            </div>
-                            <div className="trust-sep">•</div>
-                            <div className="trust-badge-item">
-                                <span className="trust-icon">🏭</span>
-                                <span className="trust-text">25,000+ Sq. Ft. Bhiwandi Plant</span>
-                            </div>
-                            <div className="trust-sep">•</div>
-                            <div className="trust-badge-item">
-                                <span className="trust-icon">✔️</span>
-                                <span className="trust-text">100% PAO / DOP Leak-Tested</span>
-                            </div>
-                        </div>
+                <div className="hero-content">
+                    <div className="spec-badge">
+                        <span>Clean Room Creators &amp; Complete HVAC Solutions</span>
                     </div>
 
-                    {/* Right Column: Floating Glassmorphic Showcase Card */}
-                    <div className="hero-showcase-col">
-                        <div className="hero-glass-card">
-                            <div className="glass-card-header">
-                                <div className="asset-status-pill">
-                                    <span className="live-ping-dot"></span>
-                                    <span className="asset-label">CERTIFIED ASSET</span>
-                                </div>
-                                <div className="asset-metric-badge">
-                                    {activeSlide.showcaseTag}
-                                </div>
-                            </div>
+                    <h1 className="hero-headline">
+                        CLEAN ROOM <br />
+                        <span className="headline-red">CREATORS</span>
+                    </h1>
 
-                            <div className="glass-card-visual">
-                                <img
-                                    src={activeSlide.showcaseImg}
-                                    alt={activeSlide.showcaseTitle}
-                                    className="glass-product-image"
-                                />
-                            </div>
+                    <p className="hero-description">
+                        MAP FILTERS INDIA PVT. LTD. is an established ISO 9001:2015 certified company, committed to providing complete turnkey clean room and HVAC solutions for pharmaceutical, chemical, research and allied industries across India.
+                    </p>
 
-                            <div className="glass-card-footer">
-                                <div className="glass-footer-meta">
-                                    <span className="glass-factory-tag">MAPFIL Engineering</span>
-                                    <h4 className="glass-product-title">{activeSlide.showcaseTitle}</h4>
-                                </div>
-                                <div className="glass-verified-stamp">
-                                    <span className="stamp-icon">✓</span>
-                                    <span className="stamp-text">Certified</span>
-                                </div>
-                            </div>
+                    <div className="hero-actions">
+                        <a href="#products" className="btn-primary-red">
+                            <span>Explore Our Products</span>
+                            <span className="btn-icon-circle">→</span>
+                        </a>
+                        <button
+                            type="button"
+                            className="btn-secondary-navy"
+                            onClick={() => onOpenEnquiry && onOpenEnquiry('Hero Action', 'General Inquiry')}
+                        >
+                            <span>Get a Quote</span>
+                            <span className="search-icon">🔍</span>
+                        </button>
+                    </div>
+
+                    {/* Proof Strip */}
+                    <div className="hero-highlights">
+                        <div className="highlight-item">
+                            <span className="highlight-num">20+</span>
+                            <span className="highlight-label">Years Experience</span>
+                        </div>
+                        <div className="highlight-divider"></div>
+                        <div className="highlight-item">
+                            <span className="highlight-num">ISO 9001:2015</span>
+                            <span className="highlight-label">Quality Certified</span>
+                        </div>
+                        <div className="highlight-divider"></div>
+                        <div className="highlight-item">
+                            <span className="highlight-num">Pan-India</span>
+                            <span className="highlight-label">Service Delivery</span>
                         </div>
                     </div>
                 </div>
 
-                {/* Slider Controls (Previous / Next Arrows + Bottom Indicator Dots) */}
-                <div className="hero-controls-bar">
-                    <button
-                        type="button"
-                        className="hero-arrow-btn"
-                        onClick={prevSlide}
-                        aria-label="Previous Slide"
-                    >
-                        ‹
-                    </button>
-
-                    <div className="hero-dots-group" aria-label="Hero carousel navigation">
-                        {HERO_SLIDES.map((_, idx) => (
-                            <button
-                                key={idx}
-                                type="button"
-                                className={`hero-nav-dot ${currentSlide === idx ? 'is-active' : ''}`}
-                                onClick={() => jumpToSlide(idx)}
-                                aria-label={`Slide ${idx + 1}`}
-                            >
-                                <span className="dot-fill"></span>
-                            </button>
-                        ))}
-                    </div>
-
-                    <button
-                        type="button"
-                        className="hero-arrow-btn"
-                        onClick={nextSlide}
-                        aria-label="Next Slide"
-                    >
-                        ›
-                    </button>
+                {/* Slider pagination */}
+                <div className="hero-slider-nav" aria-label="Hero slider pagination">
+                    {SLIDES.map((_, idx) => (
+                        <button
+                            key={idx}
+                            type="button"
+                            className={`hero-dot ${currentSlide === idx ? 'is-active' : ''}`}
+                            onClick={() => jumpToSlide(idx)}
+                            aria-label={`Go to slide ${idx + 1}`}
+                        >
+                            <span className="dot-bar"></span>
+                        </button>
+                    ))}
                 </div>
             </div>
         </section>

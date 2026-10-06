@@ -148,16 +148,9 @@
     transition: color var(--transition-fast);
 }
 
-.nav-item:hover {
-    color: #00632e;
-}
-
+.nav-item:hover,
 .nav-item.active {
-    background: #eef8f2;
     color: #00632e;
-    padding: 0.35rem 0.95rem;
-    border-radius: 999px;
-    font-weight: 700;
 }
 
 .nav-item::after {
@@ -172,12 +165,9 @@
     border-radius: 2px;
 }
 
-.nav-item:hover::after {
-    width: 100%;
-}
-
+.nav-item:hover::after,
 .nav-item.active::after {
-    display: none;
+    width: 100%;
 }
 
 .chevron {
@@ -370,58 +360,32 @@
     object-fit: contain;
 }
 
-.nav-search-trigger {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid #cbd5e1;
-    background: #ffffff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 13.5px;
-    color: #475569;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-}
-
-.nav-search-trigger:hover {
-    border-color: #00632e;
-    background: #f8fafc;
-    transform: scale(1.06);
-    box-shadow: 0 2px 8px rgba(0, 99, 46, 0.15);
-}
-
-.fly-plane-btn {
-    background: #e52320;
+.quote-nav-btn {
+    background: #D3121A;
     color: #ffffff;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 700;
-    padding: 0 1.15rem;
-    height: 36px;
-    border-radius: 999px;
+    padding: 0.52rem 1.25rem;
+    border-radius: var(--radius-pill, 999px);
+    box-shadow: 0 4px 14px rgba(211, 18, 26, 0.4);
+    transition: all var(--transition-fast, 0.2s ease);
+    white-space: nowrap;
+    gap: 7px;
     border: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    box-shadow: 0 4px 14px rgba(229, 35, 32, 0.35);
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    box-sizing: border-box;
+    justify-content: center;
 }
 
-.fly-plane-btn:hover {
-    background: #c81816;
+.quote-nav-btn:hover {
+    background: #b50f16;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(229, 35, 32, 0.45);
+    box-shadow: 0 6px 18px rgba(211, 18, 26, 0.5);
 }
 
-.fly-plane-icon {
-    font-size: 13px;
-    display: inline-block;
-    transform: rotate(-10deg);
+.quote-nav-btn .search-icon {
+    font-size: 12px;
 }
 
 /* Mobile Toggle Hamburger */

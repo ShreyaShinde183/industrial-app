@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import TopBar from './components/TopBar';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import StatsStrip from './components/StatsStrip';
 import About from './components/About';
-import CertificationsMatrix from './components/CertificationsMatrix';
 import WhyChooseUs from './components/WhyChooseUs';
 import Products from './components/Products';
 import TurnkeySolutions from './components/TurnkeySolutions';
 import Industries from './components/Industries';
-import B2BQuoteStrip from './components/B2BQuoteStrip';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import EnquiryModal from './components/EnquiryModal';
@@ -61,48 +57,36 @@ export function App() {
 
     return (
         <div className="app-root">
-            {/* Top Utility Bar (Direct Contact & ISO/ZED Pills) */}
-            <TopBar onOpenEnquiry={handleOpenEnquiry} />
-
-            {/* Sticky Header Navigation */}
+            {/* 1. Header Navigation */}
             <Header onOpenEnquiry={handleOpenEnquiry} />
 
             <main>
-                {/* 1. Hero Section with Dynamic Slides & Certified Showcase Card */}
+                {/* 2. Hero Section with Centered Layout & Dynamic Airflow */}
                 <Hero onOpenEnquiry={handleOpenEnquiry} />
-
-                {/* 2. Key Performance Metrics Strip */}
-                <StatsStrip />
 
                 {/* 3. About Us Section */}
                 <About />
 
-                {/* 4. Certifications & Quality Regulatory Matrix */}
-                <CertificationsMatrix />
-
-                {/* 5. Why Choose MAP FILTERS? (Advantage Cards) */}
+                {/* 4. Why Choose MAP FILTERS? (Advantage Cards) */}
                 <WhyChooseUs />
 
-                {/* 6. Products & Turnkey Services */}
+                {/* 5. Products & Turnkey Services */}
                 <Products onOpenEnquiry={handleOpenEnquiry} />
 
-                {/* 7. Complete Cleanroom & HVAC Delivery Flow */}
+                {/* 6. Complete Cleanroom & HVAC Delivery Flow */}
                 <TurnkeySolutions />
 
-                {/* 8. Industries We Serve (Interactive Carousel) */}
+                {/* 7. Industries We Serve (Interactive Carousel) */}
                 <Industries />
 
-                {/* 9. High-Conversion B2B Engineering Quotation Strip */}
-                <B2BQuoteStrip onOpenEnquiry={handleOpenEnquiry} />
-
-                {/* 10. Contact Section (Integrated MapFilters Network, Branches & CTA) */}
+                {/* 8. Contact Section (Integrated MapFilters Network, Branches & CTA) */}
                 <Contact
                     onOpenEnquiry={handleOpenEnquiry}
                     onOpenProject={handleOpenProject}
                 />
             </main>
 
-            {/* 11. Main Footer */}
+            {/* 9. Pre-Footer Teal Banner & Main Footer */}
             <Footer onOpenEnquiry={handleOpenEnquiry} />
 
             {/* Modals & Floating Action Widgets */}

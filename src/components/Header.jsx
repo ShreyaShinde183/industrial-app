@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 
@@ -179,21 +180,11 @@ export const Header = ({ onOpenEnquiry }) => {
 
                 <div className="nav-actions">
                     <button
-                        type="button"
-                        className="nav-search-trigger"
-                        onClick={() => onOpenEnquiry && onOpenEnquiry('Navbar Search', 'Search Catalog')}
-                        aria-label="Search Mapfilters Products"
+                        className="quote-nav-btn"
+                        onClick={() => onOpenEnquiry && onOpenEnquiry('Navbar Action')}
                     >
-                        🔍
-                    </button>
-
-                    <button
-                        type="button"
-                        className="fly-plane-btn"
-                        onClick={() => onOpenEnquiry && onOpenEnquiry('Navbar Action', 'Cleanroom & HVAC Quote')}
-                    >
-                        <span className="fly-plane-icon">✈</span>
-                        <span>Get a Quote</span>
+                        <span>I'm Curious</span>
+                        <span className="search-icon">🔍</span>
                     </button>
 
                     <button
