@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Statistics Counter Strip (Matching test.mapfilters.com)
+   ========================================================================== */
+.stats-counter-strip {
+    background: #09111e;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 10;
+    padding: 2.25rem 0;
+    color: #ffffff;
+}
+
+.stats-container {
+    max-width: var(--container-width, 1280px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(74, 222, 128, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.stat-card--featured {
+    border-color: rgba(0, 99, 46, 0.45);
+    background: linear-gradient(180deg, rgba(0, 99, 46, 0.12) 0%, rgba(9, 17, 30, 0.6) 100%);
+}
+
+.stat-value-row {
+    margin-bottom: 0.5rem;
+}
+
+.stat-number {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 40%, #4ade80 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    display: inline-block;
+}
+
+.stat-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0 0 0.35rem 0;
+    letter-spacing: -0.01em;
+}
+
+.stat-desc {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.45;
+}
+
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .stats-counter-strip {
+        padding: 1.5rem 0;
+    }
+    .stat-card {
+        padding: 1.25rem 1rem;
+    }
+}
+

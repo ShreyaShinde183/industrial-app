@@ -112,6 +112,7 @@
     /* Dimensions */
     --container-width: 1240px;
     --header-height: 82px;
+    --section-spacing: clamp(3.5rem, 5vw, 4.5rem);
 
     /* Transitions */
     --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
@@ -613,7 +614,7 @@ ol {
    -------------------------------------------------------------------------- */
 .section-heading {
     max-width: 740px;
-    margin: 0 auto 1.15rem auto;
+    margin: 0 auto 1.5rem auto;
     text-align: center;
 }
 
@@ -651,7 +652,7 @@ ol {
    -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
-    padding: 4.5rem 0 3.75rem;
+    padding: var(--section-spacing) 0;
     overflow: hidden;
     background-color: #0B1B3D;
     min-height: 580px;
@@ -1202,7 +1203,7 @@ ol {
    7. About Us Section (Clean Room Creators)
    -------------------------------------------------------------------------- */
 .about-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing) 0;
     background: #ffffff;
 }
 
@@ -1415,13 +1416,13 @@ ol {
    8. Complete Cleanroom Solutions (Turnkey Capability)
    -------------------------------------------------------------------------- */
 .solutions-flow-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing) 0;
     background: var(--bg-subtle);
     border-top: 1px solid var(--border-default);
 }
 
 #solutions .section-heading {
-    margin-bottom: 0.85rem;
+    margin-bottom: 1.5rem;
 }
 
 #solutions .section-heading h2 {
@@ -1669,7 +1670,7 @@ ol {
    9. Cleanroom Products & Services Grid (Matching Reference)
    -------------------------------------------------------------------------- */
 .cleanroom-products-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing) 0;
     background: #ffffff;
     border-top: 1px solid var(--border-default);
 }
@@ -1866,7 +1867,7 @@ ol {
    10. Industries We Serve (6 Cards)
    -------------------------------------------------------------------------- */
 .industries-cleanroom-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing) 0;
     background: #ffffff;
     border-top: 1px solid var(--border-default);
 }
@@ -1874,7 +1875,7 @@ ol {
 /* Header with Centered Heading (Matching other sections) */
 .industries-cleanroom-section .industries-heading {
     text-align: center;
-    margin: 0 auto 1.75rem auto;
+    margin: 0 auto 1.5rem auto;
     max-width: 780px;
 }
 
@@ -2355,7 +2356,7 @@ ol {
    12. Corporate Clients & Commendations
    -------------------------------------------------------------------------- */
 .clients-section {
-    padding: 1.5rem 0;
+    padding: var(--section-spacing) 0;
     background: var(--bg-subtle);
 }
 
@@ -2624,13 +2625,13 @@ ol {
    13. Contact Us Section & Direct Inquiry Form
    -------------------------------------------------------------------------- */
 .contact-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing) 0;
     background: var(--bg-subtle);
     border-top: 1px solid var(--border-default);
 }
 
 #contact .section-heading {
-    margin-bottom: 0.95rem;
+    margin-bottom: 1.5rem;
 }
 
 #contact .section-heading h2 {

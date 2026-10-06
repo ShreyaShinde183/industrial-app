@@ -71,65 +71,49 @@ export default function Products() {
 
   return (
     <div className="page-wrapper products-page">
-      {/* 1. Header Banner */}
-      <section style={{
-        background: 'linear-gradient(135deg, #0B1B3D 0%, #162a56 100%)',
-        color: '#ffffff',
-        padding: '3.5rem 1.5rem',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '850px', margin: '0 auto' }}>
-          <span style={{ color: '#86efac', fontWeight: '700', fontSize: '0.85rem', letterSpacing: '0.08em' }}>PRODUCT CATALOG</span>
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '800', marginTop: '0.5rem', color: '#ffffff' }}>
+      {/* 1. Standardized Hero Banner */}
+      <section className="page-hero-banner">
+        <div className="page-hero-inner">
+          <span className="page-eyebrow">PRODUCT CATALOG</span>
+          <h1 className="page-title">
             Cleanroom Systems &amp; Contamination Control Equipment
           </h1>
-          <p style={{ color: '#cbd5e1', fontSize: '1.1rem', marginTop: '1rem', lineHeight: '1.6' }}>
+          <p className="page-subtitle">
             Precision-engineered cleanroom components, sterile air equipment, and turnkey modular setups.
           </p>
         </div>
       </section>
 
-      {/* 2. Filter Tabs & Products Grid */}
-      <section style={{ padding: '3.5rem 1.5rem', maxWidth: '1200px', margin: '0 auto' }}>
-        {/* Category Filter Pills */}
-        <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              style={{
-                padding: '0.6rem 1.25rem',
-                borderRadius: '999px',
-                border: selectedCategory === cat ? '2px solid #00632e' : '1px solid #cbd5e1',
-                background: selectedCategory === cat ? '#00632e' : '#ffffff',
-                color: selectedCategory === cat ? '#ffffff' : '#334155',
-                fontWeight: '700',
-                fontSize: '0.9rem',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+      {/* 2. Filter Tabs & Products Grid (Standardized page-section) */}
+      <section className="page-section">
+        <div className="section-container">
+          {/* Category Filter Pills */}
+          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                style={{
+                  padding: '0.6rem 1.25rem',
+                  borderRadius: '999px',
+                  border: selectedCategory === cat ? '2px solid #00632e' : '1px solid #cbd5e1',
+                  background: selectedCategory === cat ? '#00632e' : '#ffffff',
+                  color: selectedCategory === cat ? '#ffffff' : '#334155',
+                  fontWeight: '700',
+                  fontSize: '0.9rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
-        {/* Products Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2rem' }}>
-          {filteredProducts.map((prod, idx) => (
-            <div
-              key={idx}
-              style={{
-                border: '1px solid #e2e8f0',
-                borderRadius: '12px',
-                background: '#ffffff',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.04)',
-                display: 'flex',
-                flexDirection: 'column',
-                overflow: 'hidden'
-              }}
-            >
-              <div style={{ padding: '1.75rem', flex: '1', display: 'flex', flexDirection: 'column' }}>
+          {/* Equalized Products Grid */}
+          <div className="equal-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+            {filteredProducts.map((prod, idx) => (
+              <div key={idx} className="equal-card" style={{ padding: '1.75rem' }}>
                 <span style={{
                   display: 'inline-block',
                   alignSelf: 'flex-start',
@@ -182,8 +166,8 @@ export default function Products() {
                   Request Technical Quotation
                 </Link>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
     </div>

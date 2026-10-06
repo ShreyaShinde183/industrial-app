@@ -90,7 +90,7 @@ export const Industries = () => {
     return (
         <section className="industries-cleanroom-section" id="industries">
             <div className="section-wrapper">
-                <div className="section-heading industries-heading" style={{ textAlign: 'center', margin: '0 auto 1.75rem auto', maxWidth: '780px' }}>
+                <div className="section-heading industries-heading" style={{ textAlign: 'center', margin: '0 auto 1.5rem auto', maxWidth: '780px' }}>
                     <span className="section-eyebrow">SECTORS &amp; VERTICALS</span>
                     <h2>Sectors &amp; Verticals <span className="heading-green">We Serve</span></h2>
                     <p>Tailored cleanroom and environmental control solutions engineered to meet exacting sector regulations.</p>

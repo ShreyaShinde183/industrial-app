@@ -2,13 +2,13 @@
    8. Complete Cleanroom Solutions (Turnkey Capability)
    -------------------------------------------------------------------------- */
 .solutions-flow-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing, clamp(3.5rem, 5vw, 4.5rem)) 0;
     background: var(--bg-subtle);
     border-top: 1px solid var(--border-default, #e2e8f0);
 }
 
 #solutions .section-heading {
-    margin-bottom: 0.85rem;
+    margin-bottom: 1.5rem;
 }
 
 #solutions .section-heading h2 {

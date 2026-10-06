@@ -9,13 +9,13 @@ const REASONS = [
     },
     {
         icon: '🏅',
-        title: 'ISO 9001:2008 Certified',
-        desc: 'Strict quality assurance adhering to global ISO 14644 and cGMP cleanroom standards.'
+        title: 'ISO 9001:2015 & ZED Certified',
+        desc: 'Strict quality assurance adhering to global ISO 14644, ISO 14001, ISO 45001, and cGMP cleanroom standards.'
     },
     {
         icon: '🏭',
-        title: 'In-House Manufacturing',
-        desc: 'Direct production of cleanroom panels, doors, equipment, and certified HEPA filters.'
+        title: '25,000+ Sq. Ft. Manufacturing',
+        desc: 'In-house production facility in Bhiwandi producing cleanroom panels, doors, equipment, and certified HEPA filters.'
     },
     {
         icon: '🏗️',

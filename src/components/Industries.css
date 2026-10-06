@@ -2,7 +2,7 @@
    10. Industries We Serve (6 Cards)
    -------------------------------------------------------------------------- */
 .industries-cleanroom-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing, clamp(3.5rem, 5vw, 4.5rem)) 0;
     background: #ffffff;
     border-top: 1px solid var(--border-default, #e2e8f0);
 }
@@ -10,7 +10,7 @@
 /* Header with Centered Heading (Matching other sections) */
 .industries-cleanroom-section .industries-heading {
     text-align: center;
-    margin: 0 auto 1.75rem auto;
+    margin: 0 auto 1.5rem auto;
     max-width: 780px;
 }
 

@@ -2,7 +2,7 @@
    7. About Us Section (Clean Room Creators)
    -------------------------------------------------------------------------- */
 .about-section {
-    padding: clamp(3rem, 5vw, 4.25rem) 0;
+    padding: var(--section-spacing, clamp(3.5rem, 5vw, 4.5rem)) 0;
     background: #ffffff;
 }
 
